@@ -16,7 +16,7 @@
 
 @end
 
-extern NSString *const kWSMViewRefreshNotification;
+extern NSString * const kWSMViewRefreshNotification;
 
 @interface CBLDatabase (WSMUtilities)
 

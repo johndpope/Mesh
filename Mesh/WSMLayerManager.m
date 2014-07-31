@@ -41,14 +41,14 @@ WSM_SINGLETON_WITH_NAME(sharedInstance);
     return WSM_LAZY(_capabilitySubject, RACSubject.subject);
 }
 
-- (void) subscribeToUser:(RACSubject *)subject {
+- (void)subscribeToUser:(RACSubject *)subject {
     self.userSubscription = [subject subscribeNext:^(WSMUser *user) {
         NSLog(@"User has changed!");
         self.currentUser = user;
     }];
 }
 
-- (void) setUserSubscription:(RACDisposable *)userSubscription {
+- (void)setUserSubscription:(RACDisposable *)userSubscription {
     if (_userSubscription) {
         [_userSubscription dispose];
     }
@@ -59,7 +59,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance);
     return YES;
 }
 
-- (WSMCapabilityState) capabilityState {
+- (WSMCapabilityState)capabilityState {
     NSLog(@"Layer ON: %i", self.client.isUserAuthenticated);
     if (self.client.isUserAuthenticated) {
         return kWSMCapabilityStateOn;

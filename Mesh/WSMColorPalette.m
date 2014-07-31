@@ -11,11 +11,11 @@
 @implementation WSMColorPalette
 
 SKColor* SKColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue) {
-	return [SKColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:1.0f];
+	return [SKColor colorWithRed:red / 255.0f green:green / 255.0f blue:blue / 255.0f alpha:1.0f];
 }
 
-+ (SKColor *) colorGradient: (WSColorGradient) colorGradient forIndex: (NSInteger) index
-                    ofCount: (NSInteger) count reversed: (BOOL) reversed {
++ (SKColor *)colorGradient:(WSColorGradient)colorGradient forIndex:(NSInteger)index
+                    ofCount:(NSInteger)count reversed:(BOOL)reversed {
     if (reversed)
         index = count - index;
     
@@ -35,25 +35,24 @@ SKColor* SKColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue) {
             endingBlueTint = (25 + cutoff * 10);
         } break;
         case kWSMGradientBlue: {
-            startingRedTint = (45 + cutoff* 12);
-            startingGreenTint = (100 + cutoff* 12);
-            startingBlueTint = (215 + cutoff* 10);
+            startingRedTint = (45 + cutoff * 12);
+            startingGreenTint = (100 + cutoff * 12);
+            startingBlueTint = (215 + cutoff * 10);
             
             cutoff = 6;
-            endingRedTint = (45 + cutoff* 12);
-            endingGreenTint = (100 + cutoff* 12);
-            endingBlueTint = (215 + cutoff* 10);
-            
+            endingRedTint = (45 + cutoff * 12);
+            endingGreenTint = (100 + cutoff * 12);
+            endingBlueTint = (215 + cutoff * 10);
         } break;
         case kWSMGradientRed: {
-            startingRedTint = (215 + cutoff* 10);
-            startingGreenTint = (25 + cutoff* 20);
-            startingBlueTint = (25 + cutoff* 10);
+            startingRedTint = (215 + cutoff * 10);
+            startingGreenTint = (25 + cutoff * 20);
+            startingBlueTint = (25 + cutoff * 10);
             
             cutoff = 4;
-            endingRedTint = (215 + cutoff* 10);
-            endingGreenTint = (25 + cutoff* 20);
-            endingBlueTint = (25 + cutoff* 10);
+            endingRedTint = (215 + cutoff * 10);
+            endingGreenTint = (25 + cutoff * 20);
+            endingBlueTint = (25 + cutoff * 10);
         } break;
         case kWSMGradientBlack: {
             startingRedTint = startingBlueTint = startingGreenTint = (65 + cutoff * 8.0f);
@@ -66,7 +65,6 @@ SKColor* SKColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue) {
             
             cutoff = 6;
             endingRedTint = endingGreenTint =  endingBlueTint = (200 - cutoff * 6.0f);
-            
         } break;
         default: {
             return [SKColor darkGrayColor];
@@ -75,9 +73,9 @@ SKColor* SKColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue) {
     
     CGFloat delta = 1.0 / cutoff;
     
-    if ( count > cutoff ) {
+    if (count > cutoff) {
         delta = 1.0 / count;
-    }  else {
+    } else {
         count = cutoff;
     }
     
@@ -89,7 +87,6 @@ SKColor* SKColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue) {
     CGFloat red = startingRedTint * s + endingRedTint * e;
     CGFloat green = startingGreenTint * s + endingGreenTint * e;
     CGFloat blue = startingBlueTint * s + endingBlueTint * e;
-    
     return SKColorMakeRGB(red, green, blue);
 }
 

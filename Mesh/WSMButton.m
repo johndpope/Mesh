@@ -47,13 +47,13 @@
 	self.layer.shadowRadius = 2;
 	self.layer.shadowPath = shadowPath.CGPath;
 
-    UIInterpolatingMotionEffect *horizontal = [[UIInterpolatingMotionEffect alloc] initWithKeyPath: @"layer.shadowOffset.width"
-                                                                                              type: UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    UIInterpolatingMotionEffect *horizontal = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"layer.shadowOffset.width"
+                                                                                              type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
     horizontal.minimumRelativeValue = @-3.5;
     horizontal.maximumRelativeValue = @3.5;
 
-    UIInterpolatingMotionEffect *vertical = [[UIInterpolatingMotionEffect alloc] initWithKeyPath: @"layer.shadowOffset.height"
-                                                                                            type: UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+    UIInterpolatingMotionEffect *vertical = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"layer.shadowOffset.height"
+                                                                                            type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
     vertical.minimumRelativeValue = @-2.5;
     vertical.maximumRelativeValue = @3.5;
 
@@ -61,17 +61,16 @@
     [self addMotionEffect:vertical];
 }
 
-
-- (void) pulseView: (BOOL) pulse {
-	[self pulseView:pulse withDelay: 0.0f];
+- (void)pulseView:(BOOL)pulse {
+	[self pulseView:pulse withDelay:0.0f];
 }
 
-- (void) pulseView: (BOOL) pulse withDelay: (float) delay {
+- (void)pulseView:(BOOL)pulse withDelay:(CGFloat)delay {
     if (pulse) {
         CGFloat scaleFactor = 0.9;
-        [UIView animateWithDuration:2 delay: delay
-                            options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionRepeat
-         | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionAllowUserInteraction
+        [UIView animateWithDuration:2 delay:delay
+                            options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionRepeat |
+         UIViewAnimationOptionAutoreverse | UIViewAnimationOptionAllowUserInteraction
                          animations:^
          {
              self.transform = CGAffineTransformScale(self.currentIdentityTransform, scaleFactor, scaleFactor);
@@ -89,12 +88,12 @@
 }
 
 - (void)setSelected:(BOOL)selected {
-    [super setSelected: selected];
+    [super setSelected:selected];
     self.layer.masksToBounds = selected;
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
-    [super setHighlighted: highlighted];
+    [super setHighlighted:highlighted];
     self.layer.masksToBounds = highlighted;
 }
 

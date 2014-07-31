@@ -170,8 +170,8 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
 }
 
 - (BOOL)deviceUnknown: (CBPeripheral *) peripheral {
-    for (CBPeripheral *peripheral in [self.stagedDevices arrayByAddingObjectsFromArray: self.connectedDevices].objectEnumerator) {
-        if ([peripheral.identifier.UUIDString isEqualToString:peripheral.identifier.UUIDString]) {
+    for (CBPeripheral *peri in [self.stagedDevices arrayByAddingObjectsFromArray: self.connectedDevices].objectEnumerator) {
+        if ([peri.identifier.UUIDString isEqualToString:peri.identifier.UUIDString]) {
             return NO;
         }
     }
@@ -286,14 +286,14 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
         // Have we got everything we need?
         if ([stringFromData isEqualToString:eomSignal]) {
             // We have, so show the data,
-            NSError *error;
+            NSError *err;
             NSMutableDictionary *dictionary =  [CBLJSON JSONObjectWithData:self.currentTransmission
                                                                    options:NSJSONReadingAllowFragments
-                                                                     error:&error];
+                                                                     error:&err];
             
             
-            if (error) {
-                NSLog(@"Error: %@", error);
+            if (err) {
+                NSLog(@"Error: %@", err);
                 [self cancelConnection:peripheral completionBlock:nil];
             } else {
                 self.nearbyDeviceProperties[peripheral.identifier.UUIDString] = dictionary;

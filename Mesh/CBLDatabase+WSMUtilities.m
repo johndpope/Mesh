@@ -19,11 +19,11 @@
 
 @implementation CBLDatabase (WSMUtilities)
 
-static const NSString *const kWSMViewRegistries = @"registries";
-static const NSString *const kWSMViewVariables = @"variables";
-static const NSString *const kWSMViewTimers = @"timers";
+static const NSString * const kWSMViewRegistries = @"registries";
+static const NSString * const kWSMViewVariables = @"variables";
+static const NSString * const kWSMViewTimers = @"timers";
 
-NSString *const kWSMViewRefreshNotification = @"kWSMViewRefreshNotification";
+NSString * const kWSMViewRefreshNotification = @"kWSMViewRefreshNotification";
 
 - (void)addRegistry:(Class <WSMViewRegistry>)registry forViews:(NSArray *)views {
     for (NSString *name in views) {
@@ -49,7 +49,6 @@ NSString *const kWSMViewRefreshNotification = @"kWSMViewRefreshNotification";
 
         //Finally. the view should then try to refresh its version if it wants to.
         NSTimeInterval refreshDelay = [registry nextVersionForView:name];
-
         if (refreshDelay != 0) {
             self.timers[name] = [NSTimer scheduledTimerWithTimeInterval:refreshDelay
                                                                  target:self

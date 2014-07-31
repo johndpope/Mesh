@@ -8,7 +8,7 @@
 
 @interface WSMButton : UIButton
 
-- (void) pulseView: (BOOL) pulse;
-- (void) pulseView: (BOOL) pulse withDelay: (float) delay;
+- (void)pulseView:(BOOL)pulse;
+- (void)pulseView:(BOOL)pulse withDelay:(CGFloat)delay;
 
 @end

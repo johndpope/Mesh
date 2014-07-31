@@ -12,26 +12,26 @@
 
 #pragma mark - App Backgrounding
 
-static const NSString *const kWSMBackgroundTask = @"backgroundTask";
+static const NSString * const kWSMBackgroundTask = @"backgroundTask";
 
 - (void)setupBackgrounding {
     self.backgroundTask = UIBackgroundTaskInvalid;
     
-    [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(appBackgrounding:)
-                                                 name: UIApplicationDidEnterBackgroundNotification
-                                               object: nil];
-    [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(appForegrounding:)
-                                                 name: UIApplicationWillEnterForegroundNotification
-                                               object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appBackgrounding:)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appForegrounding:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
 }
 
-- (void)appBackgrounding: (NSNotification *)notification {
+- (void)appBackgrounding:(NSNotification *)notification {
     [self keepAlive];
 }
 
-- (void) keepAlive {
+- (void)keepAlive {
     self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;
@@ -39,7 +39,7 @@ static const NSString *const kWSMBackgroundTask = @"backgroundTask";
     }];
 }
 
-- (void)appForegrounding: (NSNotification *)notification {
+- (void)appForegrounding:(NSNotification *)notification {
     if (self.backgroundTask != UIBackgroundTaskInvalid) {
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
         self.backgroundTask = UIBackgroundTaskInvalid;

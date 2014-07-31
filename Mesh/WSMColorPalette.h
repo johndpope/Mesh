@@ -28,6 +28,6 @@ typedef NS_ENUM(NSUInteger, WSColorGradient) {
 
 SKColor* SKColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue);
 
-+ (SKColor *) colorGradient: (WSColorGradient) colorGradient forIndex: (NSInteger) index ofCount: (NSInteger) count reversed: (BOOL) reversed;
++ (SKColor *)colorGradient:(WSColorGradient)colorGradient forIndex:(NSInteger)index ofCount:(NSInteger)count reversed: (BOOL)reversed;
 
 @end

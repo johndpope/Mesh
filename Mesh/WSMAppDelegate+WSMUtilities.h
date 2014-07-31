@@ -8,8 +8,10 @@
 
 
 #if TARGET_OS_IPHONE
+
 @interface WSMUIAppDelegate (WSMUtilties)
 #else
+
 @interface WSMNSAppDelegate (WSMUtilties)
 #endif
 

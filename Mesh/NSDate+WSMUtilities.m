@@ -10,7 +10,7 @@
 
 @implementation NSDate (WSMUtilities)
 
-static NSCalendar *_gregorian;
+static NSCalendar * _gregorian;
 
 + (void)load {
     _gregorian = [[NSCalendar alloc]  initWithCalendarIdentifier:NSGregorianCalendar];
@@ -35,7 +35,7 @@ static NSCalendar *_gregorian;
 
 + (NSTimeInterval)timeIntervalUntilNextMidNight {
     NSCalendarUnit resolution = (NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit);
-    NSTimeInterval midnight = [NSDate tomorrow: resolution].timeIntervalSinceReferenceDate;
+    NSTimeInterval midnight = [NSDate tomorrow:resolution].timeIntervalSinceReferenceDate;
     return midnight - NSDate.date.timeIntervalSinceReferenceDate;
 }
 

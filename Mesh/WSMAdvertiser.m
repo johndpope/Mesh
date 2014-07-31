@@ -37,9 +37,10 @@
 @implementation WSMAdvertiser
 
 #pragma mark - Class Methods
+
 WSM_SINGLETON_WITH_NAME(sharedInstance)
 
-+ (CBMutableCharacteristic *) characteristicWithUUID: (NSString *) uuidString {
++ (CBMutableCharacteristic *)characteristicWithUUID:(NSString *)uuidString {
     return [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:uuidString]
                                               properties:CBCharacteristicPropertyNotify
                                                    value:nil
@@ -89,7 +90,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     }));
 }
 
-- (RACSubject *) capabilitySubject {
+- (RACSubject *)capabilitySubject {
     return WSM_LAZY(_capabilitySubject, [RACSubject subject]);
 }
 
@@ -197,7 +198,6 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     if ([characteristic.UUID.UUIDString isEqualToString: self.userPropertiesCharacteristic.UUID.UUIDString]) {
         
         [self.peripheralManager setDesiredConnectionLatency:CBPeripheralManagerConnectionLatencyHigh forCentral:central];
-        
         if (self.currentUser) {
             NSLog(@"Did subscribe: %@", characteristic);
             __block NSMutableDictionary *dictionary;
@@ -216,7 +216,6 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
                 dispatch_semaphore_signal(putSemaphore);
             }];
             dispatch_semaphore_wait(putSemaphore, DISPATCH_TIME_FOREVER);
-            
             if (avatarData) {
                 dictionary[@"avatar"] = [avatarData base64EncodedStringWithOptions:NSUTF8StringEncoding];
             }
@@ -225,9 +224,8 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
             
             NSError *error;
             NSData *data = [CBLJSON dataWithJSONObject:dictionary options:0 error:&error];
-            
             if (data) {
-                NSLog(@"Grabbing the user dictionary (%lu): %@",(unsigned long)data.length, dictionary);
+                NSLog(@"Grabbing the user dictionary (%lu): %@", (unsigned long)data.length, dictionary);
                 self.currentDataTransmission = data;
             } else {
                 NSLog(@"NO DATA from Dictionary (%@): %@", error, dictionary);
@@ -238,11 +236,10 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     }
 }
 
-/** 
+#define DEFAULT_MTU 20
+/**
  Sends the next amount of data to the connected central
  */
-
-#define DEFAULT_MTU 20
 
 - (void)sendUserProperties {
     // First up, check if we're meant to be sending an EOM
@@ -269,17 +266,15 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     // There's data left, so send until the callback fails, or we're done.
     
     BOOL didSend = YES;
-    
     while (didSend) {
         // Make the next chunk
         // Work out how big it should be
-        NSInteger amountToSend = self.currentDataTransmission.length - self.currentDataTransmissionPosition;
-        
+        NSUInteger amountToSend = self.currentDataTransmission.length - self.currentDataTransmissionPosition;
         if (amountToSend > self.currentCentral.maximumUpdateValueLength) {
             amountToSend = self.currentCentral.maximumUpdateValueLength;
         }
         
-        NSInteger maxAmountToSend = DEFAULT_MTU;
+        NSUInteger maxAmountToSend = DEFAULT_MTU;
         // Can't be longer than 20 bytes
         if (self.currentCentral) {
             if (self.currentCentral.maximumUpdateValueLength > DEFAULT_MTU) {
@@ -312,7 +307,6 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
             BOOL eomSent = [self.peripheralManager updateValue:[eomSignal dataUsingEncoding:NSUTF8StringEncoding]
                                              forCharacteristic:self.userPropertiesCharacteristic
                                           onSubscribedCentrals:nil];
-            
             if (eomSent) {
                 // If sent, we're all done
                 self.sendingEOM = NO;
@@ -324,8 +318,9 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     }
 }
 
-/** This callback comes in when the PeripheralManager is ready to send the next chunk of data.
- *  This is to ensure that packets will arrive in the order they are sent.
+/** 
+ This callback comes in when the PeripheralManager is ready to send the next chunk of data.
+ This is to ensure that packets will arrive in the order they are sent.
  */
 
 - (void)peripheralManagerIsReadyToUpdateSubscribers:(CBPeripheralManager *)peripheral {

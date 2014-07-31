@@ -27,7 +27,7 @@ typedef NS_ENUM(NSUInteger, WSMTimeUnit) {
 
 @interface NSObject (WSMUtilities)
 
-+ (CFTimeInterval) executionTime: (WSMTimeUnit) timeUnit block: (void (^)(void)) block;
++ (CFTimeInterval)executionTime:(WSMTimeUnit)timeUnit block:(void (^)(void))block;
 
 - (void)runBlockInMainQueue:(void (^)(void))block;
 - (void)executeBlockSafely:(void (^)(void))block;

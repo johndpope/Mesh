@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "WSMAppDelegate.h"
+#import "WSMUIAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([WSMAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([WSMUIAppDelegate class]));
     }
 }
