@@ -7,18 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E164B841989C0110063F3FE /* WSMDynamicLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B6D1989C0110063F3FE /* WSMDynamicLogo.m */; };
+		6E164B851989C0110063F3FE /* WSMDynamicLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B6D1989C0110063F3FE /* WSMDynamicLogo.m */; };
+		6E164B861989C0110063F3FE /* WSMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B6F1989C0110063F3FE /* WSMButton.m */; };
+		6E164B871989C0110063F3FE /* WSMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B6F1989C0110063F3FE /* WSMButton.m */; };
+		6E164B881989C0110063F3FE /* WSMPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B711989C0110063F3FE /* WSMPageViewController.m */; };
+		6E164B891989C0110063F3FE /* WSMPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B711989C0110063F3FE /* WSMPageViewController.m */; };
+		6E164B8A1989C0110063F3FE /* WSMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B741989C0110063F3FE /* WSMLogger.m */; };
+		6E164B8B1989C0110063F3FE /* WSMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B741989C0110063F3FE /* WSMLogger.m */; };
+		6E164B8C1989C0110063F3FE /* WSMAppDelegate+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B771989C0110063F3FE /* WSMAppDelegate+WSMUtilities.m */; };
+		6E164B8D1989C0110063F3FE /* WSMAppDelegate+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B771989C0110063F3FE /* WSMAppDelegate+WSMUtilities.m */; };
+		6E164B8E1989C0110063F3FE /* WSMColorPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B791989C0110063F3FE /* WSMColorPalette.m */; };
+		6E164B8F1989C0110063F3FE /* WSMColorPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B791989C0110063F3FE /* WSMColorPalette.m */; };
+		6E164B901989C0110063F3FE /* UIAlertView+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B7B1989C0110063F3FE /* UIAlertView+WSMUtilities.m */; };
+		6E164B911989C0110063F3FE /* UIAlertView+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B7B1989C0110063F3FE /* UIAlertView+WSMUtilities.m */; };
+		6E164B921989C0110063F3FE /* NSDate+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B7D1989C0110063F3FE /* NSDate+WSMUtilities.m */; };
+		6E164B931989C0110063F3FE /* NSDate+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B7D1989C0110063F3FE /* NSDate+WSMUtilities.m */; };
+		6E164B941989C0110063F3FE /* NSObject+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B7F1989C0110063F3FE /* NSObject+WSMUtilities.m */; };
+		6E164B951989C0110063F3FE /* NSObject+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B7F1989C0110063F3FE /* NSObject+WSMUtilities.m */; };
+		6E164B961989C0110063F3FE /* NSObject+WSMBackgrounding.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B811989C0110063F3FE /* NSObject+WSMBackgrounding.m */; };
+		6E164B971989C0110063F3FE /* NSObject+WSMBackgrounding.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B811989C0110063F3FE /* NSObject+WSMBackgrounding.m */; };
+		6E164B981989C0110063F3FE /* CBLDatabase+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B831989C0110063F3FE /* CBLDatabase+WSMUtilities.m */; };
+		6E164B991989C0110063F3FE /* CBLDatabase+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B831989C0110063F3FE /* CBLDatabase+WSMUtilities.m */; };
+		6E164BA51989C2120063F3FE /* WSMUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B9E1989C2120063F3FE /* WSMUserManager.m */; };
+		6E164BA61989C2120063F3FE /* WSMUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164B9E1989C2120063F3FE /* WSMUserManager.m */; };
+		6E164BA71989C2120063F3FE /* WSMAdvertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164BA01989C2120063F3FE /* WSMAdvertiser.m */; };
+		6E164BA81989C2120063F3FE /* WSMAdvertiser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164BA01989C2120063F3FE /* WSMAdvertiser.m */; };
+		6E164BA91989C2120063F3FE /* WSMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164BA21989C2120063F3FE /* WSMScanner.m */; };
+		6E164BAA1989C2120063F3FE /* WSMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164BA21989C2120063F3FE /* WSMScanner.m */; };
+		6E164BAB1989C2120063F3FE /* WSMLayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164BA41989C2120063F3FE /* WSMLayerManager.m */; };
+		6E164BAC1989C2120063F3FE /* WSMLayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164BA41989C2120063F3FE /* WSMLayerManager.m */; };
+		6E164BB01989C3210063F3FE /* WSMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164BAF1989C3210063F3FE /* WSMUser.m */; };
+		6E164BB11989C3210063F3FE /* WSMUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164BAF1989C3210063F3FE /* WSMUser.m */; };
+		6E164BB41989C3880063F3FE /* WSMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164BB31989C3880063F3FE /* WSMModel.m */; };
+		6E164BB51989C3880063F3FE /* WSMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164BB31989C3880063F3FE /* WSMModel.m */; };
+		6EAB90BB1989BE7500FF6426 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90BA1989BE7500FF6426 /* SystemConfiguration.framework */; };
+		6EAB90BD1989BE7B00FF6426 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90BC1989BE7B00FF6426 /* Security.framework */; };
+		6EAB90BF1989BE8500FF6426 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90BE1989BE8500FF6426 /* libz.dylib */; };
+		6EAB90C11989BE8F00FF6426 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90C01989BE8F00FF6426 /* libsqlite3.dylib */; };
+		6EAB90C31989BEC300FF6426 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90C21989BEC300FF6426 /* CoreData.framework */; };
+		6EAB90C51989BECD00FF6426 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90C41989BECD00FF6426 /* AddressBook.framework */; };
+		6EAB90C71989BEEF00FF6426 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90C61989BEEF00FF6426 /* CFNetwork.framework */; };
+		6EAB90C91989BEF900FF6426 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90C81989BEF900FF6426 /* SpriteKit.framework */; };
+		6EAB90CB1989BF0400FF6426 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90CA1989BF0400FF6426 /* CoreBluetooth.framework */; };
+		6EAB90CF1989BF7D00FF6426 /* LayerKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6EAB90CD1989BF7D00FF6426 /* LayerKit.bundle */; };
+		6EAB90D01989BF7D00FF6426 /* LayerKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6EAB90CD1989BF7D00FF6426 /* LayerKit.bundle */; };
+		6EAB90D11989BF7D00FF6426 /* LayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90CE1989BF7D00FF6426 /* LayerKit.framework */; };
+		6EAB90D21989BF7D00FF6426 /* LayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90CE1989BF7D00FF6426 /* LayerKit.framework */; };
+		6EAB90D41989BF8B00FF6426 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90D31989BF8B00FF6426 /* CouchbaseLite.framework */; };
+		6EAB90D51989BF8B00FF6426 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90D31989BF8B00FF6426 /* CouchbaseLite.framework */; };
 		6EACBBBB1989B7980020FB67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EACBBBA1989B7980020FB67 /* Foundation.framework */; };
 		6EACBBBD1989B7980020FB67 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EACBBBC1989B7980020FB67 /* CoreGraphics.framework */; };
 		6EACBBBF1989B7980020FB67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EACBBBE1989B7980020FB67 /* UIKit.framework */; };
 		6EACBBC51989B7980020FB67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EACBBC31989B7980020FB67 /* InfoPlist.strings */; };
 		6EACBBC71989B7980020FB67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EACBBC61989B7980020FB67 /* main.m */; };
-		6EACBBCB1989B7980020FB67 /* WSMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EACBBCA1989B7980020FB67 /* WSMAppDelegate.m */; };
+		6EACBBCB1989B7980020FB67 /* WSMUIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EACBBCA1989B7980020FB67 /* WSMUIAppDelegate.m */; };
 		6EACBBCD1989B7980020FB67 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EACBBCC1989B7980020FB67 /* Images.xcassets */; };
 		6EACBBD41989B7980020FB67 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EACBBD31989B7980020FB67 /* XCTest.framework */; };
 		6EACBBD51989B7980020FB67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EACBBBA1989B7980020FB67 /* Foundation.framework */; };
 		6EACBBD61989B7980020FB67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EACBBBE1989B7980020FB67 /* UIKit.framework */; };
 		6EACBBDE1989B7980020FB67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EACBBDC1989B7980020FB67 /* InfoPlist.strings */; };
 		6EACBBE01989B7980020FB67 /* MeshTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EACBBDF1989B7980020FB67 /* MeshTests.m */; };
+		EAF5B7E2B6DF49B79C350360 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0592DF67A1F4758BA283D75 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +82,55 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E164B6C1989C0110063F3FE /* WSMDynamicLogo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMDynamicLogo.h; sourceTree = "<group>"; };
+		6E164B6D1989C0110063F3FE /* WSMDynamicLogo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMDynamicLogo.m; sourceTree = "<group>"; };
+		6E164B6E1989C0110063F3FE /* WSMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMButton.h; sourceTree = "<group>"; };
+		6E164B6F1989C0110063F3FE /* WSMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMButton.m; sourceTree = "<group>"; };
+		6E164B701989C0110063F3FE /* WSMPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMPageViewController.h; sourceTree = "<group>"; };
+		6E164B711989C0110063F3FE /* WSMPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMPageViewController.m; sourceTree = "<group>"; };
+		6E164B721989C0110063F3FE /* WSMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMUtilities.h; sourceTree = "<group>"; };
+		6E164B731989C0110063F3FE /* WSMLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMLogger.h; sourceTree = "<group>"; };
+		6E164B741989C0110063F3FE /* WSMLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMLogger.m; sourceTree = "<group>"; };
+		6E164B751989C0110063F3FE /* WSMMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMMacros.h; sourceTree = "<group>"; };
+		6E164B761989C0110063F3FE /* WSMAppDelegate+WSMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WSMAppDelegate+WSMUtilities.h"; sourceTree = "<group>"; };
+		6E164B771989C0110063F3FE /* WSMAppDelegate+WSMUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WSMAppDelegate+WSMUtilities.m"; sourceTree = "<group>"; };
+		6E164B781989C0110063F3FE /* WSMColorPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMColorPalette.h; sourceTree = "<group>"; };
+		6E164B791989C0110063F3FE /* WSMColorPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMColorPalette.m; sourceTree = "<group>"; };
+		6E164B7A1989C0110063F3FE /* UIAlertView+WSMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+WSMUtilities.h"; sourceTree = "<group>"; };
+		6E164B7B1989C0110063F3FE /* UIAlertView+WSMUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+WSMUtilities.m"; sourceTree = "<group>"; };
+		6E164B7C1989C0110063F3FE /* NSDate+WSMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WSMUtilities.h"; sourceTree = "<group>"; };
+		6E164B7D1989C0110063F3FE /* NSDate+WSMUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WSMUtilities.m"; sourceTree = "<group>"; };
+		6E164B7E1989C0110063F3FE /* NSObject+WSMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WSMUtilities.h"; sourceTree = "<group>"; };
+		6E164B7F1989C0110063F3FE /* NSObject+WSMUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WSMUtilities.m"; sourceTree = "<group>"; };
+		6E164B801989C0110063F3FE /* NSObject+WSMBackgrounding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WSMBackgrounding.h"; sourceTree = "<group>"; };
+		6E164B811989C0110063F3FE /* NSObject+WSMBackgrounding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WSMBackgrounding.m"; sourceTree = "<group>"; };
+		6E164B821989C0110063F3FE /* CBLDatabase+WSMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBLDatabase+WSMUtilities.h"; sourceTree = "<group>"; };
+		6E164B831989C0110063F3FE /* CBLDatabase+WSMUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "CBLDatabase+WSMUtilities.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6E164B9D1989C2120063F3FE /* WSMUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMUserManager.h; sourceTree = "<group>"; };
+		6E164B9E1989C2120063F3FE /* WSMUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMUserManager.m; sourceTree = "<group>"; };
+		6E164B9F1989C2120063F3FE /* WSMAdvertiser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = WSMAdvertiser.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		6E164BA01989C2120063F3FE /* WSMAdvertiser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = WSMAdvertiser.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6E164BA11989C2120063F3FE /* WSMScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMScanner.h; sourceTree = "<group>"; };
+		6E164BA21989C2120063F3FE /* WSMScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMScanner.m; sourceTree = "<group>"; };
+		6E164BA31989C2120063F3FE /* WSMLayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMLayerManager.h; sourceTree = "<group>"; };
+		6E164BA41989C2120063F3FE /* WSMLayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMLayerManager.m; sourceTree = "<group>"; };
+		6E164BAD1989C2E30063F3FE /* WSMStoryboardMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMStoryboardMacros.h; sourceTree = "<group>"; };
+		6E164BAE1989C3210063F3FE /* WSMUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMUser.h; sourceTree = "<group>"; };
+		6E164BAF1989C3210063F3FE /* WSMUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMUser.m; sourceTree = "<group>"; };
+		6E164BB21989C3880063F3FE /* WSMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMModel.h; sourceTree = "<group>"; };
+		6E164BB31989C3880063F3FE /* WSMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMModel.m; sourceTree = "<group>"; };
+		6EAB90BA1989BE7500FF6426 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6EAB90BC1989BE7B00FF6426 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6EAB90BE1989BE8500FF6426 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		6EAB90C01989BE8F00FF6426 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		6EAB90C21989BEC300FF6426 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6EAB90C41989BECD00FF6426 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		6EAB90C61989BEEF00FF6426 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6EAB90C81989BEF900FF6426 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		6EAB90CA1989BF0400FF6426 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		6EAB90CD1989BF7D00FF6426 /* LayerKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LayerKit.bundle; sourceTree = "<group>"; };
+		6EAB90CE1989BF7D00FF6426 /* LayerKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LayerKit.framework; sourceTree = "<group>"; };
+		6EAB90D31989BF8B00FF6426 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
 		6EACBBB71989B7980020FB67 /* Mesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EACBBBA1989B7980020FB67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6EACBBBC1989B7980020FB67 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -40,14 +139,16 @@
 		6EACBBC41989B7980020FB67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6EACBBC61989B7980020FB67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6EACBBC81989B7980020FB67 /* Mesh-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mesh-Prefix.pch"; sourceTree = "<group>"; };
-		6EACBBC91989B7980020FB67 /* WSMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSMAppDelegate.h; sourceTree = "<group>"; };
-		6EACBBCA1989B7980020FB67 /* WSMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSMAppDelegate.m; sourceTree = "<group>"; };
+		6EACBBC91989B7980020FB67 /* WSMUIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSMUIAppDelegate.h; sourceTree = "<group>"; };
+		6EACBBCA1989B7980020FB67 /* WSMUIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSMUIAppDelegate.m; sourceTree = "<group>"; };
 		6EACBBCC1989B7980020FB67 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6EACBBD21989B7980020FB67 /* MeshTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeshTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EACBBD31989B7980020FB67 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6EACBBDB1989B7980020FB67 /* MeshTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeshTests-Info.plist"; sourceTree = "<group>"; };
 		6EACBBDD1989B7980020FB67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6EACBBDF1989B7980020FB67 /* MeshTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeshTests.m; sourceTree = "<group>"; };
+		862B15EA62044269889AD85E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		E0592DF67A1F4758BA283D75 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +156,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EACBBBD1989B7980020FB67 /* CoreGraphics.framework in Frameworks */,
-				6EACBBBF1989B7980020FB67 /* UIKit.framework in Frameworks */,
 				6EACBBBB1989B7980020FB67 /* Foundation.framework in Frameworks */,
+				6EAB90C51989BECD00FF6426 /* AddressBook.framework in Frameworks */,
+				6EAB90BD1989BE7B00FF6426 /* Security.framework in Frameworks */,
+				6EAB90BB1989BE7500FF6426 /* SystemConfiguration.framework in Frameworks */,
+				6EAB90C71989BEEF00FF6426 /* CFNetwork.framework in Frameworks */,
+				6EACBBBD1989B7980020FB67 /* CoreGraphics.framework in Frameworks */,
+				6EAB90CB1989BF0400FF6426 /* CoreBluetooth.framework in Frameworks */,
+				6EAB90C31989BEC300FF6426 /* CoreData.framework in Frameworks */,
+				6EAB90C91989BEF900FF6426 /* SpriteKit.framework in Frameworks */,
+				6EACBBBF1989B7980020FB67 /* UIKit.framework in Frameworks */,
+				6EAB90D41989BF8B00FF6426 /* CouchbaseLite.framework in Frameworks */,
+				6EAB90C11989BE8F00FF6426 /* libsqlite3.dylib in Frameworks */,
+				6EAB90D11989BF7D00FF6426 /* LayerKit.framework in Frameworks */,
+				6EAB90BF1989BE8500FF6426 /* libz.dylib in Frameworks */,
+				EAF5B7E2B6DF49B79C350360 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,15 +178,88 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EAB90D51989BF8B00FF6426 /* CouchbaseLite.framework in Frameworks */,
 				6EACBBD41989B7980020FB67 /* XCTest.framework in Frameworks */,
 				6EACBBD61989B7980020FB67 /* UIKit.framework in Frameworks */,
 				6EACBBD51989B7980020FB67 /* Foundation.framework in Frameworks */,
+				6EAB90D21989BF7D00FF6426 /* LayerKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E164B9A1989C04C0063F3FE /* WSMBranding */ = {
+			isa = PBXGroup;
+			children = (
+				6E164B6C1989C0110063F3FE /* WSMDynamicLogo.h */,
+				6E164B6D1989C0110063F3FE /* WSMDynamicLogo.m */,
+				6E164B6E1989C0110063F3FE /* WSMButton.h */,
+				6E164B6F1989C0110063F3FE /* WSMButton.m */,
+			);
+			name = WSMBranding;
+			sourceTree = "<group>";
+		};
+		6E164B9B1989C0870063F3FE /* WSMPageViewCategories */ = {
+			isa = PBXGroup;
+			children = (
+				6E164B701989C0110063F3FE /* WSMPageViewController.h */,
+				6E164B711989C0110063F3FE /* WSMPageViewController.m */,
+			);
+			name = WSMPageViewCategories;
+			sourceTree = "<group>";
+		};
+		6E164B9C1989C0A80063F3FE /* WSMUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				6E164B721989C0110063F3FE /* WSMUtilities.h */,
+				6E164B731989C0110063F3FE /* WSMLogger.h */,
+				6E164B741989C0110063F3FE /* WSMLogger.m */,
+				6E164B751989C0110063F3FE /* WSMMacros.h */,
+				6E164B761989C0110063F3FE /* WSMAppDelegate+WSMUtilities.h */,
+				6E164B771989C0110063F3FE /* WSMAppDelegate+WSMUtilities.m */,
+				6E164B781989C0110063F3FE /* WSMColorPalette.h */,
+				6E164B791989C0110063F3FE /* WSMColorPalette.m */,
+				6E164B7A1989C0110063F3FE /* UIAlertView+WSMUtilities.h */,
+				6E164B7B1989C0110063F3FE /* UIAlertView+WSMUtilities.m */,
+				6E164B7C1989C0110063F3FE /* NSDate+WSMUtilities.h */,
+				6E164B7D1989C0110063F3FE /* NSDate+WSMUtilities.m */,
+				6E164B7E1989C0110063F3FE /* NSObject+WSMUtilities.h */,
+				6E164B7F1989C0110063F3FE /* NSObject+WSMUtilities.m */,
+				6E164B801989C0110063F3FE /* NSObject+WSMBackgrounding.h */,
+				6E164B811989C0110063F3FE /* NSObject+WSMBackgrounding.m */,
+				6E164B821989C0110063F3FE /* CBLDatabase+WSMUtilities.h */,
+				6E164B831989C0110063F3FE /* CBLDatabase+WSMUtilities.m */,
+				6E164BB21989C3880063F3FE /* WSMModel.h */,
+				6E164BB31989C3880063F3FE /* WSMModel.m */,
+			);
+			name = WSMUtilities;
+			sourceTree = "<group>";
+		};
+		6E164BB61989C4110063F3FE /* WSMCapabilityManager */ = {
+			isa = PBXGroup;
+			children = (
+				6E164B9D1989C2120063F3FE /* WSMUserManager.h */,
+				6E164B9E1989C2120063F3FE /* WSMUserManager.m */,
+				6E164B9F1989C2120063F3FE /* WSMAdvertiser.h */,
+				6E164BA01989C2120063F3FE /* WSMAdvertiser.m */,
+				6E164BA11989C2120063F3FE /* WSMScanner.h */,
+				6E164BA21989C2120063F3FE /* WSMScanner.m */,
+				6E164BA31989C2120063F3FE /* WSMLayerManager.h */,
+				6E164BA41989C2120063F3FE /* WSMLayerManager.m */,
+			);
+			name = WSMCapabilityManager;
+			sourceTree = "<group>";
+		};
+		6EAB90CC1989BF7D00FF6426 /* LayerKit.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				6EAB90CD1989BF7D00FF6426 /* LayerKit.bundle */,
+				6EAB90CE1989BF7D00FF6426 /* LayerKit.framework */,
+			);
+			path = LayerKit.embeddedframework;
+			sourceTree = "<group>";
+		};
 		6EACBBAE1989B7980020FB67 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +267,7 @@
 				6EACBBD91989B7980020FB67 /* MeshTests */,
 				6EACBBB91989B7980020FB67 /* Frameworks */,
 				6EACBBB81989B7980020FB67 /* Products */,
+				862B15EA62044269889AD85E /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,10 +283,22 @@
 		6EACBBB91989B7980020FB67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6EACBBBA1989B7980020FB67 /* Foundation.framework */,
+				E0592DF67A1F4758BA283D75 /* libPods.a */,
+				6EAB90C01989BE8F00FF6426 /* libsqlite3.dylib */,
+				6EAB90BE1989BE8500FF6426 /* libz.dylib */,
+				6EAB90C41989BECD00FF6426 /* AddressBook.framework */,
+				6EAB90C61989BEEF00FF6426 /* CFNetwork.framework */,
+				6EAB90CA1989BF0400FF6426 /* CoreBluetooth.framework */,
+				6EAB90C21989BEC300FF6426 /* CoreData.framework */,
 				6EACBBBC1989B7980020FB67 /* CoreGraphics.framework */,
+				6EAB90D31989BF8B00FF6426 /* CouchbaseLite.framework */,
+				6EACBBBA1989B7980020FB67 /* Foundation.framework */,
+				6EAB90BC1989BE7B00FF6426 /* Security.framework */,
+				6EAB90C81989BEF900FF6426 /* SpriteKit.framework */,
+				6EAB90BA1989BE7500FF6426 /* SystemConfiguration.framework */,
 				6EACBBBE1989B7980020FB67 /* UIKit.framework */,
 				6EACBBD31989B7980020FB67 /* XCTest.framework */,
+				6EAB90CC1989BF7D00FF6426 /* LayerKit.embeddedframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,8 +306,11 @@
 		6EACBBC01989B7980020FB67 /* Mesh */ = {
 			isa = PBXGroup;
 			children = (
-				6EACBBC91989B7980020FB67 /* WSMAppDelegate.h */,
-				6EACBBCA1989B7980020FB67 /* WSMAppDelegate.m */,
+				6EACBBC91989B7980020FB67 /* WSMUIAppDelegate.h */,
+				6EACBBCA1989B7980020FB67 /* WSMUIAppDelegate.m */,
+				6E164BAE1989C3210063F3FE /* WSMUser.h */,
+				6E164BAF1989C3210063F3FE /* WSMUser.m */,
+				6E164BB61989C4110063F3FE /* WSMCapabilityManager */,
 				6EACBBCC1989B7980020FB67 /* Images.xcassets */,
 				6EACBBC11989B7980020FB67 /* Supporting Files */,
 			);
@@ -118,6 +320,10 @@
 		6EACBBC11989B7980020FB67 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6E164BAD1989C2E30063F3FE /* WSMStoryboardMacros.h */,
+				6E164B9A1989C04C0063F3FE /* WSMBranding */,
+				6E164B9B1989C0870063F3FE /* WSMPageViewCategories */,
+				6E164B9C1989C0A80063F3FE /* WSMUtilities */,
 				6EACBBC21989B7980020FB67 /* Mesh-Info.plist */,
 				6EACBBC31989B7980020FB67 /* InfoPlist.strings */,
 				6EACBBC61989B7980020FB67 /* main.m */,
@@ -151,9 +357,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6EACBBE31989B7980020FB67 /* Build configuration list for PBXNativeTarget "Mesh" */;
 			buildPhases = (
+				471FA1D62F974C75AEBEBC7B /* Check Pods Manifest.lock */,
 				6EACBBB31989B7980020FB67 /* Sources */,
 				6EACBBB41989B7980020FB67 /* Frameworks */,
 				6EACBBB51989B7980020FB67 /* Resources */,
+				7AB56263DACC441789F7D170 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,6 +400,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = wrkstrm;
 				TargetAttributes = {
+					6EACBBB61989B7980020FB67 = {
+						DevelopmentTeam = BM6B69ZQSR;
+					};
 					6EACBBD11989B7980020FB67 = {
 						TestTargetID = 6EACBBB61989B7980020FB67;
 					};
@@ -222,6 +433,7 @@
 			files = (
 				6EACBBC51989B7980020FB67 /* InfoPlist.strings in Resources */,
 				6EACBBCD1989B7980020FB67 /* Images.xcassets in Resources */,
+				6EAB90CF1989BF7D00FF6426 /* LayerKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,19 +441,70 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EAB90D01989BF7D00FF6426 /* LayerKit.bundle in Resources */,
 				6EACBBDE1989B7980020FB67 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		471FA1D62F974C75AEBEBC7B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7AB56263DACC441789F7D170 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6EACBBB31989B7980020FB67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EACBBCB1989B7980020FB67 /* WSMAppDelegate.m in Sources */,
+				6E164B881989C0110063F3FE /* WSMPageViewController.m in Sources */,
+				6E164B921989C0110063F3FE /* NSDate+WSMUtilities.m in Sources */,
+				6E164B941989C0110063F3FE /* NSObject+WSMUtilities.m in Sources */,
+				6E164B8E1989C0110063F3FE /* WSMColorPalette.m in Sources */,
+				6E164BAB1989C2120063F3FE /* WSMLayerManager.m in Sources */,
+				6E164B901989C0110063F3FE /* UIAlertView+WSMUtilities.m in Sources */,
+				6E164BA71989C2120063F3FE /* WSMAdvertiser.m in Sources */,
+				6EACBBCB1989B7980020FB67 /* WSMUIAppDelegate.m in Sources */,
+				6E164BA51989C2120063F3FE /* WSMUserManager.m in Sources */,
+				6E164B981989C0110063F3FE /* CBLDatabase+WSMUtilities.m in Sources */,
+				6E164B861989C0110063F3FE /* WSMButton.m in Sources */,
 				6EACBBC71989B7980020FB67 /* main.m in Sources */,
+				6E164B8C1989C0110063F3FE /* WSMAppDelegate+WSMUtilities.m in Sources */,
+				6E164BA91989C2120063F3FE /* WSMScanner.m in Sources */,
+				6E164B841989C0110063F3FE /* WSMDynamicLogo.m in Sources */,
+				6E164B961989C0110063F3FE /* NSObject+WSMBackgrounding.m in Sources */,
+				6E164BB41989C3880063F3FE /* WSMModel.m in Sources */,
+				6E164BB01989C3210063F3FE /* WSMUser.m in Sources */,
+				6E164B8A1989C0110063F3FE /* WSMLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +512,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E164B871989C0110063F3FE /* WSMButton.m in Sources */,
+				6E164B991989C0110063F3FE /* CBLDatabase+WSMUtilities.m in Sources */,
+				6E164B891989C0110063F3FE /* WSMPageViewController.m in Sources */,
+				6E164B851989C0110063F3FE /* WSMDynamicLogo.m in Sources */,
+				6E164B8D1989C0110063F3FE /* WSMAppDelegate+WSMUtilities.m in Sources */,
+				6E164BB51989C3880063F3FE /* WSMModel.m in Sources */,
+				6E164B951989C0110063F3FE /* NSObject+WSMUtilities.m in Sources */,
+				6E164B911989C0110063F3FE /* UIAlertView+WSMUtilities.m in Sources */,
+				6E164BB11989C3210063F3FE /* WSMUser.m in Sources */,
+				6E164BA61989C2120063F3FE /* WSMUserManager.m in Sources */,
+				6E164BA81989C2120063F3FE /* WSMAdvertiser.m in Sources */,
+				6E164B931989C0110063F3FE /* NSDate+WSMUtilities.m in Sources */,
 				6EACBBE01989B7980020FB67 /* MeshTests.m in Sources */,
+				6E164BAC1989C2120063F3FE /* WSMLayerManager.m in Sources */,
+				6E164BAA1989C2120063F3FE /* WSMScanner.m in Sources */,
+				6E164B971989C0110063F3FE /* NSObject+WSMBackgrounding.m in Sources */,
+				6E164B8B1989C0110063F3FE /* WSMLogger.m in Sources */,
+				6E164B8F1989C0110063F3FE /* WSMColorPalette.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,26 +635,44 @@
 		};
 		6EACBBE41989B7980020FB67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 862B15EA62044269889AD85E /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LayerKit.embeddedframework",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mesh/Mesh-Prefix.pch";
 				INFOPLIST_FILE = "Mesh/Mesh-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		6EACBBE51989B7980020FB67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 862B15EA62044269889AD85E /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LayerKit.embeddedframework",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mesh/Mesh-Prefix.pch";
 				INFOPLIST_FILE = "Mesh/Mesh-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -387,6 +685,8 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/LayerKit.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mesh/Mesh-Prefix.pch";
@@ -409,6 +709,8 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)/LayerKit.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mesh/Mesh-Prefix.pch";
@@ -438,6 +740,7 @@
 				6EACBBE51989B7980020FB67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6EACBBE61989B7980020FB67 /* Build configuration list for PBXNativeTarget "MeshTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +749,7 @@
 				6EACBBE81989B7980020FB67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
