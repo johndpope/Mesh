@@ -185,9 +185,9 @@ static const NSInteger ddLogLevel = LOG_LEVEL_WARN;
  * you can use [[NSThread currentThread] setName:(NSString *)].
  **/
 
-extern NSString *const kWSMLogFormatKeyQueue;
-extern NSString *const kWSMLogFormatKeyFile;
-extern NSString *const kWSMLogFormatKeyFunction;
+extern NSString * const kWSMLogFormatKeyQueue;
+extern NSString * const kWSMLogFormatKeyFile;
+extern NSString * const kWSMLogFormatKeyFunction;
 
 typedef NS_ENUM(NSInteger, WSMLogFormatStyle) {
     kWSMLogFormatStyleNSLog,

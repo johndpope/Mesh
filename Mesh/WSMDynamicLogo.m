@@ -22,11 +22,11 @@
 - (void)commonInit {
     self.currentIdentityTransform = CGAffineTransformIdentity;
     self.backgroundColor = [UIColor clearColor];
-
+    
     [self createCircles];
-
+    
     [self createShadowEffect];
-
+    
     [self createWrkstrmVectorPath];
 }
 
@@ -34,9 +34,9 @@
     //// Abstracted Attributes
     self.leftCircle = CGRectMake(0, 5, 153, 153);
     self.rightCircle = CGRectMake(127, 5, 153, 153);
-
-    self.leftCirclePath = [UIBezierPath bezierPathWithOvalInRect: self.leftCircle];
-    self.rightCirclePath = [UIBezierPath bezierPathWithOvalInRect: self.rightCircle];
+    
+    self.leftCirclePath = [UIBezierPath bezierPathWithOvalInRect:self.leftCircle];
+    self.rightCirclePath = [UIBezierPath bezierPathWithOvalInRect:self.rightCircle];
 }
 
 - (void)createShadowEffect {
@@ -48,23 +48,22 @@
 	self.layer.shadowOpacity = 1.0f;
 	self.layer.shadowRadius = 3.0f;
 	self.layer.shadowPath = shadowPath.CGPath;
-
-    UIInterpolatingMotionEffect *horizontal = [[UIInterpolatingMotionEffect alloc] initWithKeyPath: @"layer.shadowOffset.width"
-                                                                                              type: UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+    
+    UIInterpolatingMotionEffect *horizontal = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"layer.shadowOffset.width"
+                                                                                              type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
     horizontal.minimumRelativeValue = @-6;
     horizontal.maximumRelativeValue = @6;
-
-    UIInterpolatingMotionEffect *vertical = [[UIInterpolatingMotionEffect alloc] initWithKeyPath: @"layer.shadowOffset.height"
-                                                                                            type: UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+    
+    UIInterpolatingMotionEffect *vertical = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"layer.shadowOffset.height"
+                                                                                            type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
     vertical.minimumRelativeValue = @-5;
     vertical.maximumRelativeValue = @7;
-
+    
     [self addMotionEffect:horizontal];
     [self addMotionEffect:vertical];
 }
 
-- (void) createWrkstrmVectorPath {
-
+- (void)createWrkstrmVectorPath {
     //// wrkstr Drawing
     self.wrkstrPath = [UIBezierPath bezierPath];
     [self.wrkstrPath moveToPoint: CGPointMake(71.89, 62.38)];
@@ -203,7 +202,7 @@
     [self.wrkstrPath addLineToPoint: CGPointMake(191.28, 104.01)];
     [self.wrkstrPath addLineToPoint: CGPointMake(192.9, 104.01)];
     [self.wrkstrPath closePath];
-
+    
     //// m Drawing
     self.mPath = [UIBezierPath bezierPath];
     [self.mPath moveToPoint: CGPointMake(256.39, 104.01)];
@@ -229,29 +228,29 @@
 - (void)drawRect:(CGRect)rect {
     //// General Declarations
     CGContextRef context = UIGraphicsGetCurrentContext();
-
+    
     //// Color Declarations
-    UIColor* wrkstrmTextColor = [UIColor darkTextColor];
-    UIColor* wrkstrmBlue = [WSMColorPalette colorGradient:kWSMGradientBlue
+    UIColor *wrkstrmTextColor = [UIColor darkTextColor];
+    UIColor *wrkstrmBlue = [WSMColorPalette colorGradient:kWSMGradientBlue
                                                  forIndex:0 ofCount:0 reversed:NO];
-    UIColor* wrkstrmGreen = [WSMColorPalette colorGradient:kWSMGradientGreen
+    UIColor *wrkstrmGreen = [WSMColorPalette colorGradient:kWSMGradientGreen
                                                   forIndex:0 ofCount:0 reversed:NO];
-
+    
     //// Group
     {
         CGContextSaveGState(context);
-
+        
         //// Left Circle Drawing
         [wrkstrmGreen setFill];
         [self.leftCirclePath fill];
-
+        
         //// Right Circle Drawing
         [wrkstrmBlue setFill];
         [self.rightCirclePath fill];
-
+        
         [wrkstrmTextColor setFill];
         [self.wrkstrPath fill];
-
+        
         [wrkstrmTextColor setFill];
         [self.mPath fill];
         

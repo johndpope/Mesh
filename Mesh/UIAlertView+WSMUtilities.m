@@ -10,12 +10,12 @@ static CancelBlock _cancelBlock;
 
 @implementation UIAlertView (WSMUtilities)
 
-+ (UIAlertView*) showAlertViewWithTitle:(NSString*) title
-                                message:(NSString*) message
-                      cancelButtonTitle:(NSString*) cancelButtonTitle
-                      otherButtonTitles:(NSArray*) otherButtons
-                              onConfirm:(ConfirmBlock) confirmed
-                               onCancel:(CancelBlock) cancelled {
++ (UIAlertView *)showAlertViewWithTitle:(NSString *)title
+                                message:(NSString *)message
+                      cancelButtonTitle:(NSString *)cancelButtonTitle
+                      otherButtonTitles:(NSArray *)otherButtons
+                              onConfirm:(ConfirmBlock)confirmed
+                               onCancel:(CancelBlock)cancelled {
 
     _cancelBlock  = [cancelled copy];
     _confirmBlock  = [confirmed copy];
@@ -25,22 +25,19 @@ static CancelBlock _cancelBlock;
                                                    delegate:[self self]
                                           cancelButtonTitle:cancelButtonTitle
                                           otherButtonTitles:nil];
-
-    for(NSString *buttonTitle in otherButtons)
+    for (NSString *buttonTitle in otherButtons) {
         [alert addButtonWithTitle:buttonTitle];
-
+    }
     [alert show];
     return alert;
 }
 
-
-+ (void)alertView:(UIAlertView*) alertView didDismissWithButtonIndex:(NSInteger) buttonIndex {
++ (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == [alertView cancelButtonIndex]) {
 		_cancelBlock();
 	} else {
         _confirmBlock(buttonIndex - 1); // dismiss button is button 0
     }  
 }
-
 
 @end

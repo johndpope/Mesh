@@ -318,11 +318,6 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     }
 }
 
-/** 
- This callback comes in when the PeripheralManager is ready to send the next chunk of data.
- This is to ensure that packets will arrive in the order they are sent.
- */
-
 - (void)peripheralManagerIsReadyToUpdateSubscribers:(CBPeripheralManager *)peripheral {
     [self sendUserProperties];
 }

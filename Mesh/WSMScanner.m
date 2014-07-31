@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSMutableData *currentTransmission;
 
 @property (nonatomic, strong) NSNumber *inSync;
-//@property (nonatomic, strong) NSMutableArray *knownDevicesArray;
+@property (nonatomic, strong) NSMutableArray *knownDevicesArray; //Unimplemented
 
 #pragma mark - Current State
 
@@ -37,7 +37,7 @@
 
 WSM_SINGLETON_WITH_NAME(sharedInstance)
 
-+ (CBMutableCharacteristic *)characteristicWithUUID: (NSString *) uuidString {
++ (CBMutableCharacteristic *)characteristicWithUUID:(NSString *)uuidString {
     return [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:uuidString]
                                               properties:CBCharacteristicPropertyNotify
                                                    value:nil
@@ -49,7 +49,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     return self;
 }
 
-- (void) registered {
+- (void)registered {
     dispatch_async(dispatch_get_main_queue(), ^{
         [NSTimer scheduledTimerWithTimeInterval:5.0
                                          target:self
@@ -65,7 +65,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     //                         }];
 }
 
-- (void) checkSyncStatus: (NSTimer *)timer {
+- (void)checkSyncStatus:(NSTimer *)timer {
     NSLog(@"Are we in sync? D:%lu P:%lu", (unsigned long)self.connectedDevices.count, (unsigned long)self.nearbyDeviceProperties.count);
     for (CBPeripheral *peripheral in self.connectedDevices) {
         if (![self.nearbyDeviceProperties objectForKey:peripheral.identifier.UUIDString]) {
@@ -114,9 +114,9 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     return WSM_LAZY(_nearbyDeviceProperties, @{}.mutableCopy);
 }
 
-//- (NSMutableArray *) knownDevicesArray {
-//    return WSM_LAZY(_knownDevicesArray, @[].mutableCopy);
-//}
+- (NSMutableArray *)knownDevicesArray {
+    return WSM_LAZY(_knownDevicesArray, @[].mutableCopy);
+}
 
 - (CBUUID *)serviceUUID {
     return WSM_LAZY(_serviceUUID, [CBUUID UUIDWithString:serviceUUIDString]);
@@ -156,7 +156,6 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     }
 }
 
-
 - (void)centralManager:(CBCentralManager *)central
  didDiscoverPeripheral:(CBPeripheral *)peripheral
      advertisementData:(NSDictionary *)advertisementData
@@ -169,9 +168,9 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     }
 }
 
-- (BOOL)deviceUnknown: (CBPeripheral *) peripheral {
+- (BOOL)deviceUnknown:(CBPeripheral *)peripheral {
     for (CBPeripheral *peri in [self.stagedDevices arrayByAddingObjectsFromArray: self.connectedDevices].objectEnumerator) {
-        if ([peri.identifier.UUIDString isEqualToString:peri.identifier.UUIDString]) {
+        if ([peri.identifier.UUIDString isEqualToString:peripheral.identifier.UUIDString]) {
             return NO;
         }
     }
@@ -191,7 +190,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     NSLog(@"Staged Devices: %lu Connected to People: %@", (unsigned long)self.stagedDevices.count, self.connectedDevices);
 }
 
-- (CBPeripheral *) getPreviouslyConnectedButStagedPeripheral:(CBPeripheral *)newPeripheral {
+- (CBPeripheral *)getPreviouslyConnectedButStagedPeripheral:(CBPeripheral *)newPeripheral {
     for (CBPeripheral *stagedPeripheral in self.stagedDevices) {
         if ([stagedPeripheral.identifier.UUIDString isEqualToString:newPeripheral.identifier.UUIDString]) {
             return stagedPeripheral;
@@ -199,10 +198,10 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     }
     return nil;
 }
-
-/** An attempt to cleanup when things go wrong - usually 1309 error. or you're done with the connection.
- *  This cancels any subscriptions if there are any, or straight disconnects if not.
- *  (didUpdateNotificationStateForCharacteristic will cancel the connection if a subscription is involved)
+/** 
+ An attempt to cleanup when things go wrong - usually 1309 error. or you're done with the connection.
+ This cancels any subscriptions if there are any, or straight disconnects if not.
+ (didUpdateNotificationStateForCharacteristic will cancel the connection if a subscription is involved)
  */
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral
@@ -228,7 +227,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     
     // If we've got this far, we're connected, but we're not subscribed, so we just disconnect
     [self.centralManager cancelPeripheralConnection:peripheral];
-    
+
     if (completionBlock) completionBlock();
 }
 
@@ -241,8 +240,8 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
 }
 
 #pragma mark - Peripheral Delegate
-
-/** The Transfer Service was discovered
+/** 
+ The Transfer Service was discovered
  */
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
@@ -270,7 +269,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     }
 }
 
--(void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
+- (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
             error:(NSError *)error {
     NSLog(@"Characteristic: %@ Error: %@", characteristic, error);
 }
@@ -290,8 +289,6 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
             NSMutableDictionary *dictionary =  [CBLJSON JSONObjectWithData:self.currentTransmission
                                                                    options:NSJSONReadingAllowFragments
                                                                      error:&err];
-            
-            
             if (err) {
                 NSLog(@"Error: %@", err);
                 [self cancelConnection:peripheral completionBlock:nil];
@@ -312,9 +309,10 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
 - (void)peripheral:(CBPeripheral *)peripheral didModifyServices:(NSArray *)invalidatedServices {
     NSLog(@"This service left: %@", invalidatedServices);
 }
+
 #pragma mark - WSMCapabilityProvider
 
-+ (WSMCapabilityState)capabilityStateFromCentralManager: (CBCentralManager *)central {
++ (WSMCapabilityState)capabilityStateFromCentralManager:(CBCentralManager *)central {
     NSLog(@"Central State: %@", central);
     WSMCapabilityState state;
     switch (central.state) {

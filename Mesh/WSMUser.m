@@ -18,29 +18,24 @@
 @dynamic facebook;
 @dynamic twitter;
 
-+ (WSMUser *) defaultUser {
++ (WSMUser *)defaultUser {
     NSError *error;
     CBLDatabase *db = [[CBLManager sharedInstance] databaseNamed:localUsersDB error:&error];
     CBLDocument *doc = [db documentWithID:defaultUserDocument];
-    WSMUser *user;
     if (doc[defaultUserProperty]) {
         CBLDocument *userDocument = [db documentWithID:doc[defaultUserProperty]];
         if (userDocument) {
-            user = [WSMUser modelForDocument: userDocument];
+            WSMUser *user = [WSMUser modelForDocument:userDocument];
+            if (user) {
+                [user registerLocalDatabaseViews];
+                return user;
+            }
         }
     }
-    
-    if (user) {
-        return doc[defaultUserProperty] ? ({
-            [user registerLocalDatabaseViews];
-            user;
-        }) : nil;
-    } else {
-        return nil;
-    }
+    return nil;
 }
 
-+ (WSMUser *) createDefaultUserWithProperties: (NSDictionary *) properties {
++ (WSMUser *)createDefaultUserWithProperties:(NSDictionary *)properties {
     NSMutableDictionary *mutableProperties = properties.mutableCopy;
     NSLog(@"Creating a user with these properties: %@", mutableProperties);
     NSString *userID = mutableProperties[@"_id"];
@@ -57,11 +52,10 @@
     [newDefaultUser save:nil];
     
     [WSMUser setDefaultUser:newDefaultUser];
-    
     return newDefaultUser;
 }
 
-+ (WSMUser *) userWithProperties:(NSDictionary *)properties {
++ (WSMUser *)userWithProperties:(NSDictionary *)properties {
     NSMutableDictionary *mutableProperties = properties.mutableCopy;
     NSAssert(mutableProperties[@"_id"], @"ID Property is necessary!");
     //Create a brand new Default User
@@ -92,7 +86,6 @@
             [userDocument putProperties:mutableProperties error:nil];
         }
         newUser = [[WSMUser alloc] initWithDocument:userDocument];
-        
         if (contents) {
             NSLog(@"We get image content!");
             [newUser setAttachmentNamed:@"avatar" withContentType:@"image/jpeg" content:contents];
@@ -109,7 +102,7 @@
     return newUser;
 }
 
-+ (WSMUser *) existingUserWithID: (NSString *)userID {
++ (WSMUser *)existingUserWithID:(NSString *)userID {
     NSError *error;
     CBLManager *sharedCBLManager = [CBLManager sharedInstance];
     CBLDatabase *allUserDatabases = [sharedCBLManager databaseNamed:localUsersDB
@@ -119,7 +112,7 @@
     return userDocument ? [WSMUser modelForDocument: userDocument]: nil;
 }
 
-+ (void) setDefaultUser:(WSMUser *)user {
++ (void)setDefaultUser:(WSMUser *)user {
     NSError *error;
     CBLManager *sharedCBLManager = [CBLManager sharedInstance];
     CBLDatabase *db = [sharedCBLManager databaseNamed:localUsersDB
@@ -128,28 +121,27 @@
     CBLUnsavedRevision *doc = [[db documentWithID:defaultUserDocument] newRevision];
     
     doc[defaultUserProperty] = user.docID;
-    [doc save: &error];
+    [doc save:&error];
     
     NSAssert(!error, @"Default user not saved!");
     
     [user registerLocalDatabaseViews];
 }
 
-- (void) registerLocalDatabaseViews {
+- (void)registerLocalDatabaseViews {
     CBLDatabase *database = [[CBLManager sharedInstance] databaseNamed:self.localDatabaseName
                                                                  error:nil];
     // Register stuff...
 }
 
-- (NSString *) localDatabaseName {
+- (NSString *)localDatabaseName {
     return [NSString stringWithFormat:@"u_%@", self.document.documentID.lowercaseString];
 }
 
-- (void) addParams: (NSDictionary *)params {
+- (void)addParams:(NSDictionary *)params {
     CBLUnsavedRevision *newRev = self.document.newRevision;
     [newRev setProperties:params.mutableCopy];
     [newRev save:nil];
 }
-
 
 @end

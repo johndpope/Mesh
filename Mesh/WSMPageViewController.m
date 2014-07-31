@@ -13,8 +13,11 @@
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pvc
       viewControllerBeforeViewController:(UIViewController *)vc {
-    
-    return vc.pageIndex > 0 ? [(id<WSMPageViewControllerDataSource>)self.dataSource controllerForPage:(vc.pageIndex - 1)] : nil;
+    if (vc.pageIndex > 0) {
+        return [(id<WSMPageViewControllerDataSource>)self.dataSource controllerForPage:(vc.pageIndex - 1)];
+    } else {
+        return nil;
+    }
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pvc
@@ -31,31 +34,32 @@
 @end
 
 @implementation UIViewController (WSMPageInstantiation)
-static const char *const pageIndexKey = "pageIndexKey";
 
-+ (instancetype) controllerForPage: (NSInteger)pageIndex {
+static const char * const pageIndexKey = "pageIndexKey";
+
++ (instancetype)controllerForPage:(NSInteger)pageIndex {
     UIViewController *controller = [self new];
-    [controller setPageIndex: pageIndex];
+    [controller setPageIndex:pageIndex];
     return controller;
 }
 
-+ (instancetype) controllerForPage: (NSInteger)pageIndex
-                        storyboard: (NSString*) boardIdentifier
-                        identifier: (NSString*) controllerIdentifier {
-    UIStoryboard *mainBoard = [UIStoryboard storyboardWithName: boardIdentifier bundle:nil];
-    UIViewController *controller = [mainBoard instantiateViewControllerWithIdentifier: controllerIdentifier];
++ (instancetype)controllerForPage:(NSInteger)pageIndex
+                       storyboard:(NSString *)boardIdentifier
+                       identifier:(NSString *)controllerIdentifier {
+    UIStoryboard *mainBoard = [UIStoryboard storyboardWithName:boardIdentifier bundle:nil];
+    UIViewController *controller = [mainBoard instantiateViewControllerWithIdentifier:controllerIdentifier];
     controller.pageIndex = pageIndex;
     return controller;
 }
 
-- (void) setPageIndex: (NSInteger) pageIndex {
-    [self willChangeValueForKey: @"pageIndex"];
+- (void)setPageIndex:(NSInteger)pageIndex {
+    [self willChangeValueForKey:@"pageIndex"];
     NSLog(@"PageSet: %li", (long)pageIndex);
     objc_setAssociatedObject(self, &pageIndexKey, @(pageIndex), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self didChangeValueForKey: @"pageIndex"];
 }
 
-- (NSInteger) pageIndex {
+- (NSInteger)pageIndex {
     return [objc_getAssociatedObject(self, &pageIndexKey) integerValue];
 }
 

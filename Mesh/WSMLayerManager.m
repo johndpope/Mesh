@@ -27,7 +27,7 @@
 
 WSM_SINGLETON_WITH_NAME(sharedInstance);
 
-- (instancetype) init {
+- (instancetype)init {
     if ((self = [super init])) {
         _client = [LYRClient sharedClient];
         _client.delegate = self;

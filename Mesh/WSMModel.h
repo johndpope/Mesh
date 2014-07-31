@@ -19,6 +19,6 @@
 
 @property (nonatomic, strong) NSString *type;
 
-- (NSString *) docID;
+- (NSString *)docID;
 
 @end

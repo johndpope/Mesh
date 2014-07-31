@@ -26,6 +26,6 @@
 
 - (void)addParams:(NSDictionary *)params;
 
-- (NSString*)localDatabaseName;
+- (NSString *)localDatabaseName;
 
 @end

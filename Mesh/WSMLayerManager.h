@@ -10,6 +10,6 @@
 
 @interface WSMLayerManager : NSObject <WSMCapabilityProvider, LYRClientDelegate>
 
-+ (instancetype) sharedInstance; 
++ (instancetype)sharedInstance;
 
 @end

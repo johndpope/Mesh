@@ -10,7 +10,7 @@
 
 @implementation WSMColorPalette
 
-SKColor* SKColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue) {
+SKColor *SKColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue) {
 	return [SKColor colorWithRed:red / 255.0f green:green / 255.0f blue:blue / 255.0f alpha:1.0f];
 }
 
@@ -72,7 +72,6 @@ SKColor* SKColorMakeRGB(CGFloat red, CGFloat green, CGFloat blue) {
     }
     
     CGFloat delta = 1.0 / cutoff;
-    
     if (count > cutoff) {
         delta = 1.0 / count;
     } else {

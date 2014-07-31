@@ -12,7 +12,7 @@
 
 @dynamic type;
 
-- (NSString *) docID {
+- (NSString *)docID {
     return self.document.documentID;
 }
 

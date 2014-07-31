@@ -1587,9 +1587,7 @@ static NSArray *colors   = nil;
     [m_colors addObject:MakeColor(240, 242, 242)];
     
     // Color codes
-    
     NSInteger index = 16;
-    
     while (index < 256) {
         [m_codes_fg addObject:[NSString stringWithFormat:@"38;5;%ldm", (long)index]];
         [m_codes_bg addObject:[NSString stringWithFormat:@"48;5;%ldm", (long)index]];
@@ -1657,7 +1655,6 @@ static NSArray *colors   = nil;
     r = 8;
     g = 8;
     b = 8;
-    
     while (index < 256) {
         [m_codes_fg addObject:[NSString stringWithFormat:@"38;5;%dm", index]];
         [m_codes_bg addObject:[NSString stringWithFormat:@"48;5;%dm", index]];
@@ -1686,11 +1683,9 @@ static NSArray *colors   = nil;
     // iOS
     
     BOOL done = NO;
-    
     if ([color respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
         done = [color getRed:rPtr green:gPtr blue:bPtr alpha:NULL];
     }
-    
     if (!done) {
         // The method getRed:green:blue:alpha: was only available starting iOS 5.
         // So in iOS 4 and earlier, we have to jump through hoops.
@@ -1753,7 +1748,6 @@ static NSArray *colors   = nil;
         
         NSLogVerbose(@"WSTTYLogger: %3lu : %.3f,%.3f,%.3f & %.3f,%.3f,%.3f = %.6f",
                      (unsigned long)i, inR, inG, inB, r, g, b, distance);
-        
         if (distance < lowestDistance) {
             bestIndex = i;
             lowestDistance = distance;
@@ -1777,7 +1771,6 @@ static NSArray *colors   = nil;
         context = ctxt;
         
         CGFloat r, g, b;
-        
         if (fgColor) {
             [WSMLogger getRed:&r green:&g blue:&b fromColor:fgColor];
             
@@ -1785,7 +1778,6 @@ static NSArray *colors   = nil;
             fg_g = (uint8_t)(g * 255.0f);
             fg_b = (uint8_t)(b * 255.0f);
         }
-        
         if (bgColor) {
             [WSMLogger getRed:&r green:&g blue:&b fromColor:bgColor];
             
@@ -1793,7 +1785,6 @@ static NSArray *colors   = nil;
             bg_g = (uint8_t)(g * 255.0f);
             bg_b = (uint8_t)(b * 255.0f);
         }
-        
         if (fgColor && isaColorTTY) {
             // Map foreground color to closest available shell color
             
@@ -1811,8 +1802,7 @@ static NSArray *colors   = nil;
             
             fgCodeLen = len1 + len2;
         } else if (fgColor && isaXcodeColorTTY) { // Convert foreground color to color code sequence
-            
-            const char *escapeSeq = XCODE_COLORS_ESCAPE_SEQ;
+            const char * escapeSeq = XCODE_COLORS_ESCAPE_SEQ;
             
             NSInteger result = snprintf(fgCode, 24, "%sfg%u,%u,%u;", escapeSeq, fg_r, fg_g, fg_b);
             fgCodeLen = MIN(result, (24 - 1));
@@ -1821,9 +1811,7 @@ static NSArray *colors   = nil;
             fgCode[0] = '\0';
             fgCodeLen = 0;
         }
-        
         if (bgColor && isaColorTTY) { // Map background color to closest available shell color
-            
             bgCodeIndex = [WSMLogger codeIndexForColor:bgColor];
             bgCodeRaw   = codes_bg[bgCodeIndex];
             
@@ -1839,7 +1827,7 @@ static NSArray *colors   = nil;
             bgCodeLen = len1 + len2;
         } else if (bgColor && isaXcodeColorTTY) { // Convert background color to color code sequence
             
-            const char *escapeSeq = XCODE_COLORS_ESCAPE_SEQ;
+            const char * escapeSeq = XCODE_COLORS_ESCAPE_SEQ;
             
             NSInteger result = snprintf(bgCode, 24, "%sbg%u,%u,%u;", escapeSeq, bg_r, bg_g, bg_b);
             bgCodeLen = MIN(result, (24 - 1));
@@ -1848,7 +1836,6 @@ static NSArray *colors   = nil;
             bgCode[0] = '\0';
             bgCodeLen = 0;
         }
-        
         if (isaColorTTY) {
             resetCodeLen = snprintf(resetCode, 8, "\033[0m");
         } else if (isaXcodeColorTTY) {

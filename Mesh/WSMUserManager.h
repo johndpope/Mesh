@@ -37,7 +37,6 @@ typedef NS_OPTIONS(NSUInteger, WSMUserManagerState) {
 /**
  * Manager responsible for handling the capabilities, and CBL database for locals users.
  */
-
 @interface WSMUserManager : NSObject
 
 #pragma mark - Instance Properties
@@ -102,13 +101,13 @@ typedef NS_OPTIONS(NSUInteger, WSMUserManagerState) {
  Starts capabilities. If nil, all registered capabilities will start.
  */
 
-- (void) start: (NSArray *)capabilites;
+- (void)start:(NSArray *)capabilites;
 
 /**
  Stops capabilities. If nil, all registered capabilities will stop.
  */
 
-- (void) stop: (NSArray *)capabilities;
+- (void)stop:(NSArray *)capabilities;
 
 @end
 
@@ -136,7 +135,7 @@ typedef NS_OPTIONS(NSUInteger, WSMUserManagerState) {
  A boolean which checks to see if the sharedInstance is authenticated.
  */
 
-+ (BOOL) requireAuthentication;
++ (BOOL)requireAuthentication;
 
 /**
  A required method to retrieve the current user.
@@ -148,7 +147,7 @@ typedef NS_OPTIONS(NSUInteger, WSMUserManagerState) {
  A required method to set the current user.
  */
 
-- (void) setCurrentUser:(WSMUser *)currentUser;
+- (void)setCurrentUser:(WSMUser *)currentUser;
 
 /**
  A required method to subscribe to currentUser updates.
@@ -178,13 +177,13 @@ typedef NS_OPTIONS(NSUInteger, WSMUserManagerState) {
  A method which starts the current capability.
  */
 
-- (void) start;
+- (void)start;
 
 /**
  A method which ends the current capability.
  */
 
-- (void) stop;
+- (void)stop;
 
 @optional
 
@@ -195,7 +194,7 @@ typedef NS_OPTIONS(NSUInteger, WSMUserManagerState) {
 
 - (void)registered;
 
-- (NSMutableDictionary *) nearbyDeviceProperties;
+- (NSMutableDictionary *)nearbyDeviceProperties;
 
 - (RACSubject *)nearbyDevicePropertiesSignal;
 

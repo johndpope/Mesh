@@ -39,7 +39,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     return self.sharedInstance;
 }
 
-+ (BOOL) authenticated {
++ (BOOL)authenticated {
     WSMUserManager *manager = [WSMUserManager sharedInstance];
     return manager.currentUser && manager.capabilitiesAuthorized;
 }
@@ -61,43 +61,42 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     return WSM_LAZY(_userSubject, [RACSubject subject]);
 }
 
-- (NSArray *) nearbyUsers {
+- (NSArray *)nearbyUsers {
     return WSM_LAZY(_nearbyUsers, @[].mutableCopy);
 }
 
 #pragma mark - Methods.
 
-- (NSArray *) authenticationDelegates {
+- (NSArray *)authenticationDelegates {
     return [NSArray arrayWithArray: self.capabilityProviders];
 }
 
-- (NSArray *) shouldDisplayPermissionControllers {
+- (NSArray *)shouldDisplayPermissionControllers {
     return nil;
 }
 
-- (void) registerCapabilities:(NSArray *)capabilities {
+- (void)registerCapabilities:(NSArray *)capabilities {
     NSMutableArray *signals = @[].mutableCopy;
     for (id<WSMCapabilityProvider> provider in capabilities) {
         NSLog(@"Provider Class: %@", provider.class);
         //Provide globalQueue.
         if ([provider respondsToSelector:@selector(setCapabilityQueue:)]) {
-            [provider setCapabilityQueue: self.globalCapabilityQueue];
+            [provider setCapabilityQueue:self.globalCapabilityQueue];
         }
         [self subscribeToProviderSubjects:provider]; //Subscribe to provider states.
         [provider subscribeToUser:self.userSubject]; //Supply the provider with user notifications.
         
         [signals addObject:provider.capabilitySignal]; //Gather up the provider state subjects.
         [self.capabilityProviders addObject:provider]; //Add to list of known Providers
-        
-        if([provider respondsToSelector:@selector(registered)]) {
+        if ([provider respondsToSelector:@selector(registered)]) {
             [provider registered];
         }
     }
     //Combine the subjects for a global state.
-    [self deriveGlobalState: signals];
+    [self deriveGlobalState:signals];
 }
 
-- (void) subscribeToProviderSubjects: (id<WSMCapabilityProvider>) provider {
+- (void)subscribeToProviderSubjects:(id<WSMCapabilityProvider>)provider {
     [provider.capabilitySignal subscribeNext:^(NSNumber *state) {
         NSLog(@"Provider auth state changed!");
     }];
@@ -117,7 +116,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     }];
 }
 
-- (void) deriveGlobalState:(NSArray *)signals {
+- (void)deriveGlobalState:(NSArray *)signals {
     NSAssert(signals.count == 3, @"This is a hackathon.");
     self.currentStateSignal = [RACSignal combineLatest:signals];
     
@@ -152,7 +151,6 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
         }
     }
 }
-
 /**
  Checks to see if there is current user
  */

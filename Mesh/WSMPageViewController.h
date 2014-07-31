@@ -17,14 +17,14 @@
 /**
  Informs the WSPageViewController what is the last page.
  */
-- (NSInteger) pageCount;
+- (NSInteger)pageCount;
 
 /**
- Allows for differnet UIViewControllers to be generated depending on PageIndex. 
+ Allows for differnet UIViewControllers to be generated depending on PageIndex.
  It is recommended that the Page factory methods be used when instantiating controllers.
  A generic implementation could simply return a [UIViewController controllerForPage:].
  */
-- (UIViewController *) controllerForPage: (NSInteger) pageIndex;
+- (UIViewController *)controllerForPage:(NSInteger)pageIndex;
 
 @end
 
@@ -51,7 +51,7 @@
 @interface UIViewController (WSMPageInstantiation)
 
 /**
- The pageIndex property is set through an associated object. 
+ The pageIndex property is set through an associated object.
  */
 
 @property (nonatomic) NSInteger pageIndex;
@@ -62,7 +62,7 @@
  This allows for customization as early as the loadView method (called before viewDidLoad).
  */
 
-+ (instancetype) controllerForPage: (NSInteger)pageIndex;
++ (instancetype)controllerForPage:(NSInteger)pageIndex;
 
 /**
  Default factory method when creating a UIViewController with a storyboard.
@@ -70,8 +70,8 @@
  This allows for customization as early as the loadView method (called before viewDidLoad).
  */
 
-+ (instancetype) controllerForPage: (NSInteger)pageIndex
-                        storyboard: (NSString*) boardIdentifier
-                        identifier: (NSString*) controllerIdentifier;
++ (instancetype)controllerForPage:(NSInteger)pageIndex
+                       storyboard:(NSString *)boardIdentifier
+                       identifier:(NSString *)controllerIdentifier;
 
 @end
