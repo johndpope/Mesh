@@ -10,7 +10,7 @@
 #import "WSMUserManager.h"
 #import "WSMUser.h"
 
-@interface WSMAdvertiser () <CBPeripheralDelegate>
+@interface WSMAdvertiser () <WSMCapabilityProvider, CBPeripheralDelegate>
 
 
 

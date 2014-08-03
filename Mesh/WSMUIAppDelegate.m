@@ -7,14 +7,26 @@
 //
 
 #import "WSMUIAppDelegate.h"
+#import "WSMUserManager.h"
 
 @implementation WSMUIAppDelegate
 
++ (void)load {
+#pragma mark - Custom Logging at Startup
+    WSMLogger *logger = WSMLogger.sharedInstance;
+    [DDLog addLogger:logger];
+    
+    // Customize the WSLogger
+    logger.formatStyle = kWSMLogFormatStyleQueue;
+    logger[kWSMLogFormatKeyFile] = @16;
+    logger[kWSMLogFormatKeyFunction] = @40;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    dispatch_queue_t sharedQueue = dispatch_queue_create("BTLE", DISPATCH_QUEUE_SERIAL);
+    [[WSMUserManager sharedInstanceWithQueue:sharedQueue] registerCapabilities:@[[WSMAdvertiser sharedInstance],
+                                                                                [WSMScanner sharedInstance],
+                                                                                [WSMLayerManager sharedInstance]]];
     return YES;
 }
 

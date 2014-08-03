@@ -19,6 +19,18 @@
 //  Macros v2.0
 #define WSM_BOARD_IPHONE_MAIN @"Main"
 #define WSM_BOARD_NAV_CONTROLLER_REAR @"RearNavigationController"
+#define WSM_BOARD_NAV_CONTROLLER_REAR @"RearNavigationController"
+#define WSM_BOARD_NAV_CONTROLLER_FRONT @"FrontNavigationController"
+#define WSM_BOARDID_PERMISSION_CONTROLLER @"WSMPermissionController"
+#define WSM_BOARDID_PAGE_PERMISSION @"PermissionPageController"
+#define WSM_BOARDID_PAGE_IMAGE @"PermissionImageController"
+
+//  Macros v3.0
+#define WSM_BOARD_IPHONE_MAIN @"Main"
+#define WSM_BOARD_AUTHENTICATION_CONTROLLER @"authenticationController"
+
+#define WSM_BOARD_NAV_CONTROLLER_REAR @"RearNavigationController"
+#define WSM_BOARD_NAV_CONTROLLER_REAR @"RearNavigationController"
 #define WSM_BOARD_NAV_CONTROLLER_FRONT @"FrontNavigationController"
 #define WSM_BOARDID_PERMISSION_CONTROLLER @"WSMPermissionController"
 #define WSM_BOARDID_PAGE_PERMISSION @"PermissionPageController"

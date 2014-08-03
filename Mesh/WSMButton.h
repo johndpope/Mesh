@@ -8,6 +8,8 @@
 
 @interface WSMButton : UIButton
 
+@property (nonatomic) CGAffineTransform currentIdentityTransform;
+
 - (void)pulseView:(BOOL)pulse;
 - (void)pulseView:(BOOL)pulse withDelay:(CGFloat)delay;
 

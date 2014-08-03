@@ -8,7 +8,7 @@
 
 #import "WSMUserManager.h"
 
-@interface WSMLayerManager : NSObject <WSMCapabilityProvider, LYRClientDelegate>
+@interface WSMLayerManager : NSObject <LYRClientDelegate>
 
 + (instancetype)sharedInstance;
 

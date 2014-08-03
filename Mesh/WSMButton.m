@@ -10,8 +10,6 @@
 
 @interface WSMButton ()
 
-@property (nonatomic) CGAffineTransform currentIdentityTransform;
-
 @end
 
 @implementation WSMButton
@@ -32,11 +30,11 @@
 
 - (void)commonInit {
     self.currentIdentityTransform = CGAffineTransformIdentity;
-    [self createShadow];
+//    [self createShadow];
 }
 
 - (void)createShadow {
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = [UIColor whiteColor];
     self.layer.cornerRadius = 3;
 
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.bounds];

@@ -8,7 +8,7 @@
 
 #import "WSMUserManager.h"
 
-@interface WSMScanner : NSObject <WSMCapabilityProvider, CBCentralManagerDelegate, CBPeripheralDelegate>
+@interface WSMScanner : NSObject <CBCentralManagerDelegate, CBPeripheralDelegate>
 
 + (instancetype)sharedInstance;
 

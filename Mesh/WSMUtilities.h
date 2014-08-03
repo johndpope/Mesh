@@ -13,6 +13,7 @@
 #import "NSDate+WSMUtilities.h"
 #import "NSObject+WSMUtilities.h"
 #import "UIAlertView+WSMUtilities.h"
+#import "UIImage+WSMUtilities.h"
 
 //Third Party
 #import "WSMLogger.h"

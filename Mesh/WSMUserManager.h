@@ -6,8 +6,11 @@
 //  Copyright (c) 2014 daheins. All rights reserved.
 //
 
-#import "WSMAdvertiser.h"
+
 #import "WSMUser.h"
+#import "WSMAdvertiser.h"
+#import "WSMScanner.h"
+#import "WSMLayerManager.h"
 
 #pragma mark - Enum, Option, block and Global String declarations.
 

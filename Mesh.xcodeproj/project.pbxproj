@@ -42,6 +42,20 @@
 		6E164BB41989C3880063F3FE /* WSMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164BB31989C3880063F3FE /* WSMModel.m */; };
 		6E164BB51989C3880063F3FE /* WSMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E164BB31989C3880063F3FE /* WSMModel.m */; };
 		6E164BB91989D83C0063F3FE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E164BB81989D83C0063F3FE /* MapKit.framework */; };
+		6E212DE21989EA75004D2FF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E212DE11989EA75004D2FF6 /* Main.storyboard */; };
+		6E212DE31989EA75004D2FF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E212DE11989EA75004D2FF6 /* Main.storyboard */; };
+		6E212DE61989EDC0004D2FF6 /* WSMAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E212DE51989EDC0004D2FF6 /* WSMAuthViewController.m */; };
+		6E212DE71989EDC0004D2FF6 /* WSMAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E212DE51989EDC0004D2FF6 /* WSMAuthViewController.m */; };
+		6E212DEE1989F2AB004D2FF6 /* WSMEditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E212DED1989F2AB004D2FF6 /* WSMEditableTableViewCell.m */; };
+		6E212DEF1989F2AB004D2FF6 /* WSMEditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E212DED1989F2AB004D2FF6 /* WSMEditableTableViewCell.m */; };
+		6E212DF11989F2BC004D2FF6 /* WSMEditableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E212DF01989F2BC004D2FF6 /* WSMEditableTableViewCell.xib */; };
+		6E212DF21989F2BC004D2FF6 /* WSMEditableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E212DF01989F2BC004D2FF6 /* WSMEditableTableViewCell.xib */; };
+		6E73ECBE198DD748005852EE /* WSMNearbyUsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E73ECBD198DD748005852EE /* WSMNearbyUsersTableViewController.m */; };
+		6E73ECBF198DD748005852EE /* WSMNearbyUsersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E73ECBD198DD748005852EE /* WSMNearbyUsersTableViewController.m */; };
+		6E73ECC3198DD754005852EE /* WSMUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E73ECC1198DD754005852EE /* WSMUserTableViewCell.m */; };
+		6E73ECC4198DD754005852EE /* WSMUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E73ECC1198DD754005852EE /* WSMUserTableViewCell.m */; };
+		6E73ECC5198DD754005852EE /* WSMUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E73ECC2198DD754005852EE /* WSMUserTableViewCell.xib */; };
+		6E73ECC6198DD754005852EE /* WSMUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E73ECC2198DD754005852EE /* WSMUserTableViewCell.xib */; };
 		6EAB90BB1989BE7500FF6426 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90BA1989BE7500FF6426 /* SystemConfiguration.framework */; };
 		6EAB90BD1989BE7B00FF6426 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90BC1989BE7B00FF6426 /* Security.framework */; };
 		6EAB90BF1989BE8500FF6426 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90BE1989BE8500FF6426 /* libz.dylib */; };
@@ -69,6 +83,17 @@
 		6EACBBD61989B7980020FB67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EACBBBE1989B7980020FB67 /* UIKit.framework */; };
 		6EACBBDE1989B7980020FB67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EACBBDC1989B7980020FB67 /* InfoPlist.strings */; };
 		6EACBBE01989B7980020FB67 /* MeshTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EACBBDF1989B7980020FB67 /* MeshTests.m */; };
+		6EE63989198A3119004EFCF2 /* UIImage+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE63988198A3119004EFCF2 /* UIImage+WSMUtilities.m */; };
+		6EE6398A198A3119004EFCF2 /* UIImage+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE63988198A3119004EFCF2 /* UIImage+WSMUtilities.m */; };
+		6EE6398D198A393A004EFCF2 /* WSMBootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE6398C198A393A004EFCF2 /* WSMBootViewController.m */; };
+		6EE6398E198A393A004EFCF2 /* WSMBootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE6398C198A393A004EFCF2 /* WSMBootViewController.m */; };
+		6EE63990198A40F1004EFCF2 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE6398F198A40F1004EFCF2 /* CoreText.framework */; };
+		6EE63993198A44C3004EFCF2 /* WSMMeshLogoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE63992198A44C3004EFCF2 /* WSMMeshLogoButton.m */; };
+		6EE63994198A44C3004EFCF2 /* WSMMeshLogoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE63992198A44C3004EFCF2 /* WSMMeshLogoButton.m */; };
+		6EE63997198AFD19004EFCF2 /* WSMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE63996198AFD19004EFCF2 /* WSMViewController.m */; };
+		6EE63998198AFD19004EFCF2 /* WSMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE63996198AFD19004EFCF2 /* WSMViewController.m */; };
+		6EE6399B198B0A5F004EFCF2 /* WSMCameraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE6399A198B0A5F004EFCF2 /* WSMCameraButton.m */; };
+		6EE6399C198B0A5F004EFCF2 /* WSMCameraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE6399A198B0A5F004EFCF2 /* WSMCameraButton.m */; };
 		EAF5B7E2B6DF49B79C350360 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0592DF67A1F4758BA283D75 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +146,17 @@
 		6E164BB21989C3880063F3FE /* WSMModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMModel.h; sourceTree = "<group>"; };
 		6E164BB31989C3880063F3FE /* WSMModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMModel.m; sourceTree = "<group>"; };
 		6E164BB81989D83C0063F3FE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6E212DE11989EA75004D2FF6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		6E212DE41989EDBF004D2FF6 /* WSMAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMAuthViewController.h; sourceTree = "<group>"; };
+		6E212DE51989EDC0004D2FF6 /* WSMAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMAuthViewController.m; sourceTree = "<group>"; };
+		6E212DEC1989F2AB004D2FF6 /* WSMEditableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMEditableTableViewCell.h; sourceTree = "<group>"; };
+		6E212DED1989F2AB004D2FF6 /* WSMEditableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMEditableTableViewCell.m; sourceTree = "<group>"; };
+		6E212DF01989F2BC004D2FF6 /* WSMEditableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSMEditableTableViewCell.xib; sourceTree = "<group>"; };
+		6E73ECBC198DD748005852EE /* WSMNearbyUsersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMNearbyUsersTableViewController.h; sourceTree = "<group>"; };
+		6E73ECBD198DD748005852EE /* WSMNearbyUsersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMNearbyUsersTableViewController.m; sourceTree = "<group>"; };
+		6E73ECC0198DD754005852EE /* WSMUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMUserTableViewCell.h; sourceTree = "<group>"; };
+		6E73ECC1198DD754005852EE /* WSMUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMUserTableViewCell.m; sourceTree = "<group>"; };
+		6E73ECC2198DD754005852EE /* WSMUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSMUserTableViewCell.xib; sourceTree = "<group>"; };
 		6EAB90BA1989BE7500FF6426 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6EAB90BC1989BE7B00FF6426 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6EAB90BE1989BE8500FF6426 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -149,6 +185,17 @@
 		6EACBBDB1989B7980020FB67 /* MeshTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeshTests-Info.plist"; sourceTree = "<group>"; };
 		6EACBBDD1989B7980020FB67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6EACBBDF1989B7980020FB67 /* MeshTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeshTests.m; sourceTree = "<group>"; };
+		6EE63987198A3119004EFCF2 /* UIImage+WSMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WSMUtilities.h"; sourceTree = "<group>"; };
+		6EE63988198A3119004EFCF2 /* UIImage+WSMUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WSMUtilities.m"; sourceTree = "<group>"; };
+		6EE6398B198A393A004EFCF2 /* WSMBootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMBootViewController.h; sourceTree = "<group>"; };
+		6EE6398C198A393A004EFCF2 /* WSMBootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMBootViewController.m; sourceTree = "<group>"; };
+		6EE6398F198A40F1004EFCF2 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		6EE63991198A44C3004EFCF2 /* WSMMeshLogoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMMeshLogoButton.h; sourceTree = "<group>"; };
+		6EE63992198A44C3004EFCF2 /* WSMMeshLogoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMMeshLogoButton.m; sourceTree = "<group>"; };
+		6EE63995198AFD19004EFCF2 /* WSMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMViewController.h; sourceTree = "<group>"; };
+		6EE63996198AFD19004EFCF2 /* WSMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMViewController.m; sourceTree = "<group>"; };
+		6EE63999198B0A5F004EFCF2 /* WSMCameraButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMCameraButton.h; sourceTree = "<group>"; };
+		6EE6399A198B0A5F004EFCF2 /* WSMCameraButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMCameraButton.m; sourceTree = "<group>"; };
 		862B15EA62044269889AD85E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E0592DF67A1F4758BA283D75 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -158,6 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EE63990198A40F1004EFCF2 /* CoreText.framework in Frameworks */,
 				6EACBBBB1989B7980020FB67 /* Foundation.framework in Frameworks */,
 				6EAB90C51989BECD00FF6426 /* AddressBook.framework in Frameworks */,
 				6E164BB91989D83C0063F3FE /* MapKit.framework in Frameworks */,
@@ -195,6 +243,10 @@
 		6E164B9A1989C04C0063F3FE /* WSMBranding */ = {
 			isa = PBXGroup;
 			children = (
+				6EE63991198A44C3004EFCF2 /* WSMMeshLogoButton.h */,
+				6EE63992198A44C3004EFCF2 /* WSMMeshLogoButton.m */,
+				6EE63999198B0A5F004EFCF2 /* WSMCameraButton.h */,
+				6EE6399A198B0A5F004EFCF2 /* WSMCameraButton.m */,
 				6E164B6C1989C0110063F3FE /* WSMDynamicLogo.h */,
 				6E164B6D1989C0110063F3FE /* WSMDynamicLogo.m */,
 				6E164B6E1989C0110063F3FE /* WSMButton.h */,
@@ -216,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				6E164B721989C0110063F3FE /* WSMUtilities.h */,
+				6EE63987198A3119004EFCF2 /* UIImage+WSMUtilities.h */,
+				6EE63988198A3119004EFCF2 /* UIImage+WSMUtilities.m */,
 				6E164B731989C0110063F3FE /* WSMLogger.h */,
 				6E164B741989C0110063F3FE /* WSMLogger.m */,
 				6E164B751989C0110063F3FE /* WSMMacros.h */,
@@ -263,6 +317,61 @@
 			name = CBLModels;
 			sourceTree = "<group>";
 		};
+		6E73ECB7198DD5DD005852EE /* WSMTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				6E212DEC1989F2AB004D2FF6 /* WSMEditableTableViewCell.h */,
+				6E212DED1989F2AB004D2FF6 /* WSMEditableTableViewCell.m */,
+				6E212DF01989F2BC004D2FF6 /* WSMEditableTableViewCell.xib */,
+				6E73ECC0198DD754005852EE /* WSMUserTableViewCell.h */,
+				6E73ECC1198DD754005852EE /* WSMUserTableViewCell.m */,
+				6E73ECC2198DD754005852EE /* WSMUserTableViewCell.xib */,
+			);
+			name = WSMTableViewCells;
+			sourceTree = "<group>";
+		};
+		6E73ECB8198DD61F005852EE /* WSMViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6E73ECB9198DD62C005852EE /* Phase 0: Boot and Auth */,
+				6E73ECBA198DD63D005852EE /* Phase 1: Nearby Users */,
+			);
+			name = WSMViewControllers;
+			sourceTree = "<group>";
+		};
+		6E73ECB9198DD62C005852EE /* Phase 0: Boot and Auth */ = {
+			isa = PBXGroup;
+			children = (
+				6EACBBC91989B7980020FB67 /* WSMUIAppDelegate.h */,
+				6EACBBCA1989B7980020FB67 /* WSMUIAppDelegate.m */,
+				6EE63995198AFD19004EFCF2 /* WSMViewController.h */,
+				6EE63996198AFD19004EFCF2 /* WSMViewController.m */,
+				6EE6398B198A393A004EFCF2 /* WSMBootViewController.h */,
+				6EE6398C198A393A004EFCF2 /* WSMBootViewController.m */,
+				6E212DE41989EDBF004D2FF6 /* WSMAuthViewController.h */,
+				6E212DE51989EDC0004D2FF6 /* WSMAuthViewController.m */,
+			);
+			name = "Phase 0: Boot and Auth";
+			sourceTree = "<group>";
+		};
+		6E73ECBA198DD63D005852EE /* Phase 1: Nearby Users */ = {
+			isa = PBXGroup;
+			children = (
+				6E73ECBC198DD748005852EE /* WSMNearbyUsersTableViewController.h */,
+				6E73ECBD198DD748005852EE /* WSMNearbyUsersTableViewController.m */,
+			);
+			name = "Phase 1: Nearby Users";
+			sourceTree = "<group>";
+		};
+		6E73ECBB198DD672005852EE /* WSMViews */ = {
+			isa = PBXGroup;
+			children = (
+				6E212DE11989EA75004D2FF6 /* Main.storyboard */,
+				6E73ECB7198DD5DD005852EE /* WSMTableViewCells */,
+			);
+			name = WSMViews;
+			sourceTree = "<group>";
+		};
 		6EAB90CC1989BF7D00FF6426 /* LayerKit.embeddedframework */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +404,7 @@
 		6EACBBB91989B7980020FB67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6EE6398F198A40F1004EFCF2 /* CoreText.framework */,
 				6E164BB81989D83C0063F3FE /* MapKit.framework */,
 				E0592DF67A1F4758BA283D75 /* libPods.a */,
 				6EAB90C01989BE8F00FF6426 /* libsqlite3.dylib */,
@@ -319,8 +429,8 @@
 		6EACBBC01989B7980020FB67 /* Mesh */ = {
 			isa = PBXGroup;
 			children = (
-				6EACBBC91989B7980020FB67 /* WSMUIAppDelegate.h */,
-				6EACBBCA1989B7980020FB67 /* WSMUIAppDelegate.m */,
+				6E73ECBB198DD672005852EE /* WSMViews */,
+				6E73ECB8198DD61F005852EE /* WSMViewControllers */,
 				6E164BB71989D7FB0063F3FE /* CBLModels */,
 				6E164BB61989C4110063F3FE /* WSMCapabilityManagers */,
 				6EACBBCC1989B7980020FB67 /* Images.xcassets */,
@@ -454,7 +564,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EACBBC51989B7980020FB67 /* InfoPlist.strings in Resources */,
+				6E212DF11989F2BC004D2FF6 /* WSMEditableTableViewCell.xib in Resources */,
+				6E212DE21989EA75004D2FF6 /* Main.storyboard in Resources */,
 				6EACBBCD1989B7980020FB67 /* Images.xcassets in Resources */,
+				6E73ECC5198DD754005852EE /* WSMUserTableViewCell.xib in Resources */,
 				6EAB90CF1989BF7D00FF6426 /* LayerKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,7 +577,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EAB90D01989BF7D00FF6426 /* LayerKit.bundle in Resources */,
+				6E212DF21989F2BC004D2FF6 /* WSMEditableTableViewCell.xib in Resources */,
 				6EACBBDE1989B7980020FB67 /* InfoPlist.strings in Resources */,
+				6E73ECC6198DD754005852EE /* WSMUserTableViewCell.xib in Resources */,
+				6E212DE31989EA75004D2FF6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,22 +652,31 @@
 			files = (
 				6E164B881989C0110063F3FE /* WSMPageViewController.m in Sources */,
 				6E164B921989C0110063F3FE /* NSDate+WSMUtilities.m in Sources */,
+				6E212DE61989EDC0004D2FF6 /* WSMAuthViewController.m in Sources */,
 				6E164B941989C0110063F3FE /* NSObject+WSMUtilities.m in Sources */,
+				6EE63993198A44C3004EFCF2 /* WSMMeshLogoButton.m in Sources */,
+				6EE6398D198A393A004EFCF2 /* WSMBootViewController.m in Sources */,
 				6E164B8E1989C0110063F3FE /* WSMColorPalette.m in Sources */,
+				6EE63989198A3119004EFCF2 /* UIImage+WSMUtilities.m in Sources */,
 				6E164BAB1989C2120063F3FE /* WSMLayerManager.m in Sources */,
 				6E164B901989C0110063F3FE /* UIAlertView+WSMUtilities.m in Sources */,
+				6EE6399B198B0A5F004EFCF2 /* WSMCameraButton.m in Sources */,
 				6E164BA71989C2120063F3FE /* WSMAdvertiser.m in Sources */,
 				6EACBBCB1989B7980020FB67 /* WSMUIAppDelegate.m in Sources */,
 				6E164BA51989C2120063F3FE /* WSMUserManager.m in Sources */,
 				6E164B981989C0110063F3FE /* CBLDatabase+WSMUtilities.m in Sources */,
 				6E164B861989C0110063F3FE /* WSMButton.m in Sources */,
+				6E212DEE1989F2AB004D2FF6 /* WSMEditableTableViewCell.m in Sources */,
 				6EACBBC71989B7980020FB67 /* main.m in Sources */,
+				6EE63997198AFD19004EFCF2 /* WSMViewController.m in Sources */,
 				6E164B8C1989C0110063F3FE /* WSMAppDelegate+WSMUtilities.m in Sources */,
+				6E73ECBE198DD748005852EE /* WSMNearbyUsersTableViewController.m in Sources */,
 				6E164BA91989C2120063F3FE /* WSMScanner.m in Sources */,
 				6E164B841989C0110063F3FE /* WSMDynamicLogo.m in Sources */,
 				6E164B961989C0110063F3FE /* NSObject+WSMBackgrounding.m in Sources */,
 				6E164BB41989C3880063F3FE /* WSMModel.m in Sources */,
 				6E164BB01989C3210063F3FE /* WSMUser.m in Sources */,
+				6E73ECC3198DD754005852EE /* WSMUserTableViewCell.m in Sources */,
 				6E164B8A1989C0110063F3FE /* WSMLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,24 +685,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EE63998198AFD19004EFCF2 /* WSMViewController.m in Sources */,
 				6E164B871989C0110063F3FE /* WSMButton.m in Sources */,
 				6E164B991989C0110063F3FE /* CBLDatabase+WSMUtilities.m in Sources */,
 				6E164B891989C0110063F3FE /* WSMPageViewController.m in Sources */,
 				6E164B851989C0110063F3FE /* WSMDynamicLogo.m in Sources */,
 				6E164B8D1989C0110063F3FE /* WSMAppDelegate+WSMUtilities.m in Sources */,
+				6EE6399C198B0A5F004EFCF2 /* WSMCameraButton.m in Sources */,
 				6E164BB51989C3880063F3FE /* WSMModel.m in Sources */,
 				6E164B951989C0110063F3FE /* NSObject+WSMUtilities.m in Sources */,
+				6EE6398E198A393A004EFCF2 /* WSMBootViewController.m in Sources */,
 				6E164B911989C0110063F3FE /* UIAlertView+WSMUtilities.m in Sources */,
+				6E212DEF1989F2AB004D2FF6 /* WSMEditableTableViewCell.m in Sources */,
 				6E164BB11989C3210063F3FE /* WSMUser.m in Sources */,
+				6E73ECBF198DD748005852EE /* WSMNearbyUsersTableViewController.m in Sources */,
 				6E164BA61989C2120063F3FE /* WSMUserManager.m in Sources */,
+				6E212DE71989EDC0004D2FF6 /* WSMAuthViewController.m in Sources */,
 				6E164BA81989C2120063F3FE /* WSMAdvertiser.m in Sources */,
 				6E164B931989C0110063F3FE /* NSDate+WSMUtilities.m in Sources */,
 				6EACBBE01989B7980020FB67 /* MeshTests.m in Sources */,
 				6E164BAC1989C2120063F3FE /* WSMLayerManager.m in Sources */,
+				6EE6398A198A3119004EFCF2 /* UIImage+WSMUtilities.m in Sources */,
 				6E164BAA1989C2120063F3FE /* WSMScanner.m in Sources */,
 				6E164B971989C0110063F3FE /* NSObject+WSMBackgrounding.m in Sources */,
 				6E164B8B1989C0110063F3FE /* WSMLogger.m in Sources */,
 				6E164B8F1989C0110063F3FE /* WSMColorPalette.m in Sources */,
+				6EE63994198A44C3004EFCF2 /* WSMMeshLogoButton.m in Sources */,
+				6E73ECC4198DD754005852EE /* WSMUserTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,7 +825,7 @@
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -724,7 +858,7 @@
 				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

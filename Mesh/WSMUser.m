@@ -71,7 +71,6 @@
     }
     
     dispatch_semaphore_t putSemaphore = dispatch_semaphore_create(0);
-    
     [[CBLManager sharedInstance] doAsync:^{
         CBLDatabase *usersDB = [[CBLManager sharedInstance] databaseNamed:localUsersDB
                                                                     error:nil];
@@ -94,10 +93,8 @@
         }
         
         [newUser save:nil];
-        
         dispatch_semaphore_signal(putSemaphore);
     }];
-    
     dispatch_semaphore_wait(putSemaphore, DISPATCH_TIME_FOREVER);
     return newUser;
 }

@@ -9,7 +9,7 @@
 #import "WSMLayerManager.h"
 #import "WSMUserManager.h"
 
-@interface WSMLayerManager () 
+@interface WSMLayerManager () <WSMCapabilityProvider>
 
 #pragma mark - Client
 

@@ -10,7 +10,7 @@
 #import "WSMUserManager.h"
 #import "WSMUser.h"
 
-@interface WSMScanner ()
+@interface WSMScanner () <WSMCapabilityProvider>
 
 #pragma mark - Central Properties
 

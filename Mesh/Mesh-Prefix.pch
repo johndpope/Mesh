@@ -20,12 +20,15 @@
 
     //Third Party
     #import <ReactiveCocoa/ReactiveCocoa.h>
+    #import <ReactiveCocoa/RACEXTScope.h>
     #import <CouchbaseLite/CouchbaseLite.h>
     #import <AFNetworking/AFNetworking.h>
     #import <LayerKit/LayerKit.h>
+    #import <SOMessaging/SOMessage.h>
 
     //My Party
     #import "WSMUIAppDelegate.h"
     #import "WSMUtilities.h"
     #import "WSMStoryboardMacros.h"
+    #import "WSMUserManager.h"
 #endif
