@@ -56,6 +56,8 @@
 		6E73ECC4198DD754005852EE /* WSMUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E73ECC1198DD754005852EE /* WSMUserTableViewCell.m */; };
 		6E73ECC5198DD754005852EE /* WSMUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E73ECC2198DD754005852EE /* WSMUserTableViewCell.xib */; };
 		6E73ECC6198DD754005852EE /* WSMUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E73ECC2198DD754005852EE /* WSMUserTableViewCell.xib */; };
+		6E73ECC9198DE078005852EE /* WSMUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E73ECC8198DE078005852EE /* WSMUserProfileViewController.m */; };
+		6E73ECCA198DE078005852EE /* WSMUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E73ECC8198DE078005852EE /* WSMUserProfileViewController.m */; };
 		6EAB90BB1989BE7500FF6426 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90BA1989BE7500FF6426 /* SystemConfiguration.framework */; };
 		6EAB90BD1989BE7B00FF6426 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90BC1989BE7B00FF6426 /* Security.framework */; };
 		6EAB90BF1989BE8500FF6426 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EAB90BE1989BE8500FF6426 /* libz.dylib */; };
@@ -157,6 +159,8 @@
 		6E73ECC0198DD754005852EE /* WSMUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMUserTableViewCell.h; sourceTree = "<group>"; };
 		6E73ECC1198DD754005852EE /* WSMUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMUserTableViewCell.m; sourceTree = "<group>"; };
 		6E73ECC2198DD754005852EE /* WSMUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSMUserTableViewCell.xib; sourceTree = "<group>"; };
+		6E73ECC7198DE078005852EE /* WSMUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMUserProfileViewController.h; sourceTree = "<group>"; };
+		6E73ECC8198DE078005852EE /* WSMUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMUserProfileViewController.m; sourceTree = "<group>"; };
 		6EAB90BA1989BE7500FF6426 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6EAB90BC1989BE7B00FF6426 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6EAB90BE1989BE8500FF6426 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -334,7 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				6E73ECB9198DD62C005852EE /* Phase 0: Boot and Auth */,
-				6E73ECBA198DD63D005852EE /* Phase 1: Nearby Users */,
+				6E73ECBA198DD63D005852EE /* Phase 1: TabBar Controllers */,
 			);
 			name = WSMViewControllers;
 			sourceTree = "<group>";
@@ -354,13 +358,15 @@
 			name = "Phase 0: Boot and Auth";
 			sourceTree = "<group>";
 		};
-		6E73ECBA198DD63D005852EE /* Phase 1: Nearby Users */ = {
+		6E73ECBA198DD63D005852EE /* Phase 1: TabBar Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				6E73ECBC198DD748005852EE /* WSMNearbyUsersTableViewController.h */,
 				6E73ECBD198DD748005852EE /* WSMNearbyUsersTableViewController.m */,
+				6E73ECC7198DE078005852EE /* WSMUserProfileViewController.h */,
+				6E73ECC8198DE078005852EE /* WSMUserProfileViewController.m */,
 			);
-			name = "Phase 1: Nearby Users";
+			name = "Phase 1: TabBar Controllers";
 			sourceTree = "<group>";
 		};
 		6E73ECBB198DD672005852EE /* WSMViews */ = {
@@ -678,6 +684,7 @@
 				6E164BB01989C3210063F3FE /* WSMUser.m in Sources */,
 				6E73ECC3198DD754005852EE /* WSMUserTableViewCell.m in Sources */,
 				6E164B8A1989C0110063F3FE /* WSMLogger.m in Sources */,
+				6E73ECC9198DE078005852EE /* WSMUserProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +695,7 @@
 				6EE63998198AFD19004EFCF2 /* WSMViewController.m in Sources */,
 				6E164B871989C0110063F3FE /* WSMButton.m in Sources */,
 				6E164B991989C0110063F3FE /* CBLDatabase+WSMUtilities.m in Sources */,
+				6E73ECCA198DE078005852EE /* WSMUserProfileViewController.m in Sources */,
 				6E164B891989C0110063F3FE /* WSMPageViewController.m in Sources */,
 				6E164B851989C0110063F3FE /* WSMDynamicLogo.m in Sources */,
 				6E164B8D1989C0110063F3FE /* WSMAppDelegate+WSMUtilities.m in Sources */,

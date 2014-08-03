@@ -41,7 +41,6 @@
     self.detailTextField.returnKeyType = UIReturnKeyDone;
     self.detailTextField.tag = self.tag;
 }
-
 /*
  When the table view becomes editable, the cell should:
  Hide the location label (so that the Delete button does not overlap it)

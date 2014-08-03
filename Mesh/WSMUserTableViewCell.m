@@ -14,6 +14,20 @@
     // Initialization code
 }
 
+- (void)setupForUser:(WSMUser *)user {
+    self.textLabel.text = user.username;
+    self.detailTextLabel.text = @"Hi!";
+    
+    NSData *content;
+    content = [[user attachmentNamed:@"avatar"] content];
+    
+    if (!content) {
+        NSLog(@"We don't have a picture: %@", user.document.properties);
+        NSLog(@"Attachments: %@", user.attachmentNames);
+    }
+    self.imageView.image = [UIImage imageWithData:content];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

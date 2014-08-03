@@ -94,7 +94,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     return WSM_LAZY(_capabilitySubject, [RACSubject subject]);
 }
 
-#define peripheralQueueString "com.wrkstrm.pm"
+#define peripheralQueueString "com.mesh.pm"
 
 - (dispatch_queue_t)capabilityQueue {
     return WSM_LAZY(_capabilityQueue,
@@ -196,8 +196,6 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
 - (void)peripheralManager:(CBPeripheralManager *)peripheral
                   central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic {
     if ([characteristic.UUID.UUIDString isEqualToString: self.userPropertiesCharacteristic.UUID.UUIDString]) {
-        
-        [self.peripheralManager setDesiredConnectionLatency:CBPeripheralManagerConnectionLatencyHigh forCentral:central];
         if (self.currentUser) {
             NSLog(@"Did subscribe: %@", characteristic);
             __block NSMutableDictionary *dictionary;
@@ -230,7 +228,8 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
             } else {
                 NSLog(@"NO DATA from Dictionary (%@): %@", error, dictionary);
             }
-            
+            [self.peripheralManager setDesiredConnectionLatency:CBPeripheralManagerConnectionLatencyLow
+                                                     forCentral:central];
             [self sendUserProperties];
         }
     }
@@ -251,6 +250,8 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
         
         // Did it send? Mark it as sent
         self.sendingEOM = !didSend;
+        [self.peripheralManager setDesiredConnectionLatency:CBPeripheralManagerConnectionLatencyHigh
+                                                 forCentral:self.currentCentral];
         WSMLog(didSend, @"Sent: EOM");
         // If it didn't send we'll exit and wait for peripheralManagerIsReadyToUpdateSubscribers to call sendData again
         return;
@@ -292,7 +293,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
         didSend = [self.peripheralManager updateValue:chunk
                                     forCharacteristic:self.userPropertiesCharacteristic
                                  onSubscribedCentrals:nil];
-        
+        NSLog(@"Sending Chunk!");
         if (!didSend) return; // If it didn't work, drop out and wait for the callback to try again.
         
         // It did send, so update our index
@@ -310,6 +311,8 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
             if (eomSent) {
                 // If sent, we're all done
                 self.sendingEOM = NO;
+                [self.peripheralManager setDesiredConnectionLatency:CBPeripheralManagerConnectionLatencyHigh
+                                                         forCentral:self.currentCentral];
                 NSLog(@"Sent: EOM");
             }
             

@@ -95,7 +95,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     return WSM_LAZY(_nearbyDevicePropertiesSignal, [RACSubject subject]);
 }
 
-#define centralQueueString "com.wrkstrm.cm"
+#define centralQueueString "com.mesh.cm"
 
 - (dispatch_queue_t)capabilityQueue {
     return WSM_LAZY(_capabilityQueue,
@@ -297,9 +297,9 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
                 NSLog(@"Nearyby DeviceProperties; %@", self.nearbyDeviceProperties);
                 [self.nearbyDevicePropertiesSignal sendNext:self.nearbyDeviceProperties];
             }
-            
             self.currentTransmission = NSMutableData.new;
         } else {
+            NSLog(@"Appending data.");
             // Otherwise, just add the data on to what we already have
             [self.currentTransmission appendData:characteristic.value];
         }

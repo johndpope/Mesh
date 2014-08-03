@@ -10,6 +10,8 @@
 
 @interface WSMUserTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UIImageView *userAvatar;
+//@property (nonatomic, strong) IBOutlet UIImageView *userAvatar;
+
+- (void)setupForUser:(WSMUser *)user;
 
 @end

@@ -223,11 +223,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                          
                          DDLogError(@"We saved a picture: %@", attachmentName);
                          [user save: nil];
-                         if ([[WSMUserManager sharedInstance] currentUser]) {
-                             //                             [self patchImage:compressedPic];
-                         } else {
-                             //                             [self postImage:compressedPic];
-                         }
                      }
                      [user setAttachmentNamed:@"avatar"
                               withContentType:@"image/jpeg"

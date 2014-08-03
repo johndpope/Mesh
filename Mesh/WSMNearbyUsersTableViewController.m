@@ -15,7 +15,7 @@
 
 @implementation WSMNearbyUsersTableViewController
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (!(self = [super initWithCoder:aDecoder])) return nil;
     self.title = @"Encounters";
     return self;
@@ -70,43 +70,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"userCell"];
-    
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"userCell"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    
-    WSMUser *user = [self userForIndexPath:indexPath];
-    
-    cell.textLabel.text = user.username;
-    cell.detailTextLabel.text = @"This will be a profile.";
-    if (user.attachmentNames.count) {
-        NSLog(@"We have a picture...");
-        __block NSData *content;
-        //        [[CBLManager sharedInstance] doAsync:^{
-        content = [[user attachmentNamed:@"avatar"] content];
-        
-        //            dispatch_async(dispatch_get_main_queue(), ^{
-        //                NSLog(@"We should have the image content now: %@", content);
-        UIImage *image = [UIImage imageWithData:content];
-        NSLog(@"Where is this image: %@", image);
-        cell.imageView.image = [UIImage imageWithData:content];
-        //            });
-        //        }];
-    } else {
-        NSLog(@"We don't have a picture: %@", user.document.properties);
-        NSLog(@"Attachments: %@", user.attachmentNames);
-    }
+    WSMUserTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:userCell forIndexPath:indexPath];
+    [cell setupForUser:[self userForIndexPath:indexPath]];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 44;
 }
-- (WSMUser *) userForIndexPath: (NSIndexPath *) path {
-    return WSMUserManager.sharedInstance.nearbyUsers[path.row];
+
+- (WSMUser *)userForIndexPath: (NSIndexPath *)path {
+    return (WSMUser *)WSMUserManager.sharedInstance.nearbyUsers[(NSUInteger)path.row];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -115,24 +89,16 @@
             [self performSegueWithIdentifier:@"userProfile"
                                       sender:[self userForIndexPath:indexPath]];
             break;
-            
         default: break;
     }
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
 /*
  // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
  if (editingStyle == UITableViewCellEditingStyleDelete) {
  // Delete the row from the data source
  [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
