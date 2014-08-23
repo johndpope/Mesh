@@ -41,6 +41,10 @@
     }));
 }
 
+- (IBAction)pushButton:(id)sender {
+    NSLog(@"Button pushed!");
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     

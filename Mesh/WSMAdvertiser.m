@@ -265,7 +265,6 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     }
     
     // There's data left, so send until the callback fails, or we're done.
-    
     BOOL didSend = YES;
     while (didSend) {
         // Make the next chunk

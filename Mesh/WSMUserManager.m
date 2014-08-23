@@ -19,10 +19,10 @@
 @property (nonatomic, strong, readwrite) NSArray *nearbyUsers;
 
 #pragma mark - State
-@property (nonatomic, strong, readwrite) WSMUser *currentUser;
+@property (nonatomic, strong) WSMUser *currentUser;
 @property (nonatomic, strong) RACSubject *userSubject;
 @property (nonatomic, readwrite) WSMUserManagerState managerState;
-@property (nonatomic, strong, readwrite) RACSignal *currentStateSignal;
+@property (nonatomic, strong) RACSignal *currentStateSignal;
 
 @end
 
@@ -33,6 +33,7 @@
 #pragma mark - Class Methods.
 
 WSM_SINGLETON_WITH_NAME(sharedInstance)
+
 
 + (instancetype)sharedInstanceWithQueue:(dispatch_queue_t)queue {
     [self.sharedInstance setGlobalCapabilityQueue:queue];
@@ -103,7 +104,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     
     if (![provider respondsToSelector:@selector(nearbyDevicePropertiesSignal)]) return;
     NSLog(@"Someone can sense devices!");
-
+    
     RAC(self, nearbyUsers) = [[provider nearbyDevicePropertiesSignal] map:^id(NSMutableDictionary *devicePropertyDictionary) {
         NSMutableArray *usersArray = @[].mutableCopy;
         for (NSString *userKey in devicePropertyDictionary) {

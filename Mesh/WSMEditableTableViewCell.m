@@ -18,13 +18,11 @@
 
 @synthesize detailTextField = _detailTextField, textLabel = _textLabel;
 
-- (void)awakeFromNib {
-    // Initialization code
-}
+- (void)awakeFromNib {}
 
 - (void)prepareForUsername:(id<UITextFieldDelegate>)delegate {
     self.textLabel.text = @"Username";
-    self.detailTextField.placeholder = @"CoolName";
+    self.detailTextField.placeholder = @"Cool User Name";
     self.detailTextField.delegate = delegate;
     self.detailTextField.returnKeyType = UIReturnKeyNext;
     self.userInteractionEnabled = YES;
@@ -41,6 +39,7 @@
     self.detailTextField.returnKeyType = UIReturnKeyDone;
     self.detailTextField.tag = self.tag;
 }
+
 /*
  When the table view becomes editable, the cell should:
  Hide the location label (so that the Delete button does not overlap it)
@@ -72,7 +71,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    
     // Configure the view for the selected state
 }
 
