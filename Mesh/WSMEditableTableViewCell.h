@@ -6,8 +6,6 @@
 //
 //
 
-#import <UIKit/UIKit.h>
-
 @class WSMUser;
 
 @interface WSMEditableTableViewCell : UITableViewCell
