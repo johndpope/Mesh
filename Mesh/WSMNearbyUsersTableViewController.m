@@ -63,7 +63,8 @@
                  NSLog(@"Number of Sections: %lu", self.messageController.numberOfSections);
                  if (self.messageController.numberOfSections > 0) {
                      LYRMessageSectionInfo *sectionInfo = [self.messageController sectionAtIndex:0];
-                     NSLog(@"Number of messages: %lul", (unsigned long)sectionInfo.numberOfMessages);
+                     
+                     NSLog(@"Number of messages: %lu", (unsigned long)sectionInfo.numberOfMessages);
                  }
                  [self.tableView reloadData];
              }];

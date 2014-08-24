@@ -54,7 +54,9 @@
         if (error) {
             NSLog(@"Error: %@", error);
         } else {
-            [self loadMessages];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self loadMessages];
+            });
         }
     }];
 }
@@ -75,9 +77,14 @@
             message.text = [firstBody stringRepresentation];
             message.type = SOMessageTypeText;
             message.date = layerMessage.date;
+            NSLog(@"SOMesssage: %@", message);
             [allMessages addObject:message];
+            [self sendMessage:message];
         }
     }
+    
+//    self.dataSource = allMessages;
+//    [self refreshMessages];
 }
 
 - (WSMUser *)currentUser {
