@@ -211,7 +211,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
             }];
             dispatch_semaphore_wait(putSemaphore, DISPATCH_TIME_FOREVER);
             
-            NSDictionary *syncDictionary = [[dictionary objectsForKeys:@[@"_id", @"_rev"] notFoundMarker:@"Impossible"]];
+            NSDictionary *syncDictionary = [dictionary dictionaryWithValuesForKeys:@[@"_id", @"_rev"]];
             
             [self.peripheralManager setDesiredConnectionLatency:CBPeripheralManagerConnectionLatencyLow
                                                      forCentral:central];
