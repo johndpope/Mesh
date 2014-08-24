@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SOMessage.h"
+#import <SOMessaging/SOMessage.h>
 
-@interface Message : NSObject <SOMessage>
+@interface Message : SOMessage
 
 @end
