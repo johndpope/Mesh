@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 wrkstrm. All rights reserved.
 //
 
-#import <SOMessaging/SOMessage.h>
 #import <SOMessaging/SOMessagingViewController.h>
-#import <LayerKit/LayerKit.h>
+
+@class SOMessagingViewController;
 
 @interface WSMMessagingViewController : SOMessagingViewController
 
