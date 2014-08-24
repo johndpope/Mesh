@@ -8,11 +8,14 @@
 
 #import "WSMModel.h"
 
+#define localUsersDB @"local_users"
+#define defaultUserDocument @"default_user"
+#define defaultUserProperty @"userID"
+
+
 @interface WSMUser : WSMModel
 
 @property (nonatomic, strong) NSString *username;
-@property (nonatomic, strong) NSString *facebook;
-@property (nonatomic, strong) NSString *twitter;
 
 + (WSMUser *)defaultUser;
 
