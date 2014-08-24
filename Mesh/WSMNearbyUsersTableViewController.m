@@ -59,10 +59,14 @@
          NSLog(@"Reloading TableView with: %@", users);
          dispatch_async(dispatch_get_main_queue(), ^{
              [self.messageController performUpdateWithCompletion:^(NSError *error) {
+                 NSLog(@"Update Complete: %@", self.messageController);
+                 NSLog(@"Number of Sections: %lu", self.messageController.numberOfSections);
+                 if (self.messageController.numberOfSections > 0) {
+                     LYRMessageSectionInfo *sectionInfo = [self.messageController sectionAtIndex:0];
+                     NSLog(@"Number of messages: %lul", (unsigned long)sectionInfo.numberOfMessages);
+                 }
                  [self.tableView reloadData];
              }];
-//             [self.tableView reloadSections:[[NSIndexSet alloc] initWithIndex:0]
-//                           withRowAnimation:UITableViewRowAnimationTop];
          });
      }];
     
@@ -87,7 +91,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
