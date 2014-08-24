@@ -10,6 +10,7 @@
 #import "ContentManager.h"
 #import "Message.h"
 
+
 @interface WSMMessagingViewController ()
 
 @property (strong, nonatomic) NSMutableArray *dataSource;
@@ -112,6 +113,26 @@
     msg.fromMe = YES;
     
     [self sendMessage:msg];
+    
+    LYRClient *client = [LYRClient sharedClient];
+    
+    LYRAddress *address = [LYRAddress addressWithString:self.recipient.document[@"address"]];
+    
+    LYRMessage *outgoingMessage = [[LYRMessage alloc] initWithClient:client];
+    
+    
+    NSError *error;
+    
+    [outgoingMessage addMessageBody:[LYRMessageBody bodyWithText:msg.text] error:&error];
+    [outgoingMessage addRecipient:address error:&error];
+    
+    [client sendMessage:outgoingMessage completion:^(NSError *error2) {
+        if(error2) {
+            NSLog(@"Error: %@", error2);
+        } else {
+            NSLog(@"Success sending message!");
+        }
+    }];
 }
 
 - (void)messageInputViewDidSelectMediaButton:(SOMessageInputView *)inputView

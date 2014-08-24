@@ -8,6 +8,7 @@
 
 #import <SOMessaging/SOMessage.h>
 #import <SOMessaging/SOMessagingViewController.h>
+#import <LayerKit/LayerKit.h>
 
 @interface WSMMessagingViewController : SOMessagingViewController
 
