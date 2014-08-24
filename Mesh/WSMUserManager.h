@@ -52,6 +52,8 @@ typedef NS_OPTIONS(NSUInteger, WSMUserManagerState) {
 
 @property (nonatomic, strong, readonly) NSArray *nearbyUsers;
 
+@property (nonatomic, strong, readonly) NSArray *encounteredUsers; 
+
 #pragma mark - Class Methods
 
 /**

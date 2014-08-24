@@ -198,6 +198,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
     }
     return nil;
 }
+
 /** 
  An attempt to cleanup when things go wrong - usually 1309 error. or you're done with the connection.
  This cancels any subscriptions if there are any, or straight disconnects if not.

@@ -8,6 +8,7 @@
 
 #import "WSMUserManager.h"
 #import "WSMUser.h"
+#import "WSMLocalUserViews.h"
 
 @interface WSMUserManager ()
 
@@ -28,7 +29,7 @@
 
 @implementation WSMUserManager
 
-@synthesize currentUser = _currentUser;
+@synthesize currentUser = _currentUser, encounteredUsers = _encounteredUsers;
 
 #pragma mark - Class Methods.
 
@@ -48,7 +49,11 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
 #pragma mark - Initialization.
 
 - (instancetype)init {
-    if ((self = [super init])) {}
+    if ((self = [super init])) {
+        CBLDatabase *userDB = [[CBLManager sharedInstance] databaseNamed:localUsersDB error:nil];
+        [userDB addRegistry:WSMLocalUserViews.class
+                   forViews:@[kWSMViewEncounteredUserView]];
+    }
     return self;
 }
 
@@ -64,6 +69,18 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
 
 - (NSArray *)nearbyUsers {
     return WSM_LAZY(_nearbyUsers, @[].mutableCopy);
+}
+
+- (NSArray *)encounteredUsers {
+    return WSM_LAZY(_encounteredUsers, ({
+        CBLDatabase *userDB = [[CBLManager sharedInstance] databaseNamed:localUsersDB error:nil];
+        NSArray *allUserDocs = [[[userDB createAllDocumentsQuery] run:nil].rac_sequence array];
+        [[[allUserDocs.rac_sequence filter:^BOOL(CBLQueryRow *row) {
+            return ![row.key isEqualToString:self.currentUser.docID];
+        }] map:^id(CBLQueryRow *row) {
+            return [WSMUser existingUserWithID:row.documentID];
+        }] array];
+    }));
 }
 
 #pragma mark - Methods.

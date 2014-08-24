@@ -10,13 +10,7 @@
 
 @implementation WSMUser
 
-#define localUsersDB @"local_users"
-#define defaultUserDocument @"default_user"
-#define defaultUserProperty @"userID"
-
 @dynamic username;
-@dynamic facebook;
-@dynamic twitter;
 
 + (WSMUser *)defaultUser {
     NSError *error;
@@ -43,6 +37,7 @@
     //Create a brand new Default User
     CBLDatabase *usersDB = [[CBLManager sharedInstance] databaseNamed:localUsersDB
                                                                 error:nil];
+
     CBLDocument *userDocument = [usersDB documentWithID:userID];
     
     [mutableProperties removeObjectForKey:@"_id"];
@@ -62,7 +57,6 @@
     __block WSMUser *newUser;
     NSData *contents;
     if (mutableProperties[@"avatar"]) {
-        NSLog(@"We got avatar data!");
         contents = [[NSData alloc] initWithBase64EncodedString:mutableProperties[@"avatar"]
                                                        options:NSDataBase64DecodingIgnoreUnknownCharacters];
         [mutableProperties removeObjectForKey:@"avatar"];
@@ -89,9 +83,10 @@
             NSLog(@"We get image content!");
             [newUser setAttachmentNamed:@"avatar" withContentType:@"image/jpeg" content:contents];
         } else {
-            NSLog(@"For some reasonwe don't get the contents...");
+            NSLog(@"For some reason we don't get the contents...");
         }
         
+        NSLog(@"We saved a user.");
         [newUser save:nil];
         dispatch_semaphore_signal(putSemaphore);
     }];
