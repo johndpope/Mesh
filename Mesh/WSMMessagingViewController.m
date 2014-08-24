@@ -108,12 +108,6 @@
         return;
     }
     
-    Message *msg = [[Message alloc] init];
-    msg.text = message;
-    msg.fromMe = YES;
-    
-    [self sendMessage:msg];
-    
     LYRClient *client = [LYRClient sharedClient];
     
     LYRAddress *address = [LYRAddress addressWithString:self.recipient.document[@"address"]];
@@ -123,7 +117,7 @@
     
     NSError *error;
     
-    [outgoingMessage addMessageBody:[LYRMessageBody bodyWithText:msg.text] error:&error];
+    [outgoingMessage addMessageBody:[LYRMessageBody bodyWithText:message] error:&error];
     [outgoingMessage addRecipient:address error:&error];
     
     [client sendMessage:outgoingMessage completion:^(NSError *error2) {
@@ -131,6 +125,10 @@
             NSLog(@"Error: %@", error2);
         } else {
             NSLog(@"Success sending message!");
+            Message *msg = [[Message alloc] init];
+            msg.text = message;
+            msg.fromMe = YES;
+            [self sendMessage:msg];
         }
     }];
 }
