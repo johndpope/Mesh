@@ -25,12 +25,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    NSData *meContent, *recipientContent;
+    meContent = [[self.currentUser attachmentNamed:@"avatar"] content];
+    recipientContent = [[self.recipient attachmentNamed:@"avatar"] content];
     
-    self.myImage      = [UIImage imageNamed:@"arturdev.jpg"];
-    self.partnerImage = [UIImage imageNamed:@"jobs.jpg"];
+    self.myImage      = [UIImage imageWithData:meContent];
+    self.partnerImage = [UIImage imageWithData:recipientContent];
     
     
     [self loadMessages];
+}
+
+- (WSMUser *)currentUser {
+    return [[WSMUserManager sharedInstance] currentUser];
 }
 
 - (void)loadMessages
@@ -60,7 +68,7 @@
         cell.textView.textColor = [UIColor blackColor];
     } else {
         cell.contentInsets = UIEdgeInsetsMake(0, 0, 0, 3.0f); //Move content for 3 pt. to left
-        cell.textView.textColor = [UIColor whiteColor];
+        cell.textView.textColor = [UIColor blackColor];
     }
     
     cell.userImageView.layer.cornerRadius = self.userImageSize.width/2;

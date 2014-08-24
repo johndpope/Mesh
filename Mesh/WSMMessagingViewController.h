@@ -11,6 +11,7 @@
 
 @interface WSMMessagingViewController : SOMessagingViewController
 
+@property (nonatomic, strong) WSMUser *currentUser;
 @property (nonatomic, strong) WSMUser *recipient;
 
 @end
