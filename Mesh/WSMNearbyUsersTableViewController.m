@@ -10,9 +10,12 @@
 #import "WSMUserTableViewCell.h"
 #import "WSMMessagingViewController.h"
 
-@interface WSMNearbyUsersTableViewController ()
+@interface WSMNearbyUsersTableViewController () <LYRMessageControllerDelegate>
 
 @property (nonatomic, strong) NSArray *encounteredUsers;
+@property (nonatomic, strong) LYRMessageController *messageController;
+
+@property (nonatomic, strong) LYRMessage *message;
 
 @end
 
@@ -21,6 +24,22 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (!(self = [super initWithCoder:aDecoder])) return nil;
     self.title = @"Encounters";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(self.conversations, $c, $c.lastMessage == SELF && $c.type == %d).@count > 0",
+                              LYRConversationTypeParticipants];
+    
+    NSSortDescriptor *sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"dateSender" ascending:NO];
+    
+    LYRClient *client = [LYRClient sharedClient];
+    
+    _messageController = [LYRMessageController.alloc initWithClient:client
+                                                          predicate:predicate
+                                                    sortDescriptors:@[sortDesc]
+                                                         fetchLimit:0
+                                                        fetchOffset:0
+                                                 sectionNameKeyPath:nil];
+
+    _messageController.delegate = self;
+    
     return self;
 }
 
@@ -39,13 +58,30 @@
      subscribeNext:^(NSArray *users) {
          NSLog(@"Reloading TableView with: %@", users);
          dispatch_async(dispatch_get_main_queue(), ^{
-             [self.tableView reloadSections:[[NSIndexSet alloc] initWithIndex:0]
-                           withRowAnimation:UITableViewRowAnimationTop];
+             [self.messageController performUpdateWithCompletion:^(NSError *error) {
+                 [self.tableView reloadData];
+             }];
+//             [self.tableView reloadSections:[[NSIndexSet alloc] initWithIndex:0]
+//                           withRowAnimation:UITableViewRowAnimationTop];
          });
      }];
     
     self.clearsSelectionOnViewWillAppear = YES;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+}
+
+#pragma mark - LYRMessageController Delegate
+
+- (void)objectController:(LYRMessageController*)objectController
+         didChangeObject:(LYRMessage*)message
+             atIndexPath:(NSIndexPath*)indexPath
+           forChangeType:(LYRObjectControllerChange)changeType
+            newIndexPath:(NSIndexPath*)newIndexPath {
+    NSLog(@"Message: %@", message);
+    self.message = message;
 }
 
 #pragma mark - Table view data source
@@ -112,8 +148,12 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"messagingSegue"]) {
+        
         WSMMessagingViewController *messagingController = (WSMMessagingViewController *) segue.destinationViewController;
         messagingController.recipient = (WSMUser *)sender;
+        
+        NSString * conversationIdentifier = [self.message conversationForType:LYRConversationTypeParticipants].identifier;
+        messagingController.conversationIdentifier = conversationIdentifier;
     }
     
     // Get the new view controller using [segue destinationViewController].

@@ -15,4 +15,6 @@
 @property (nonatomic, strong) WSMUser *currentUser;
 @property (nonatomic, strong) WSMUser *recipient;
 
+@property (nonatomic, strong) NSString *conversationIdentifier;
+
 @end

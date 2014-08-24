@@ -12,11 +12,13 @@
 #import "ContentManager.h"
 #import "Message.h"
 
-@interface WSMMessagingViewController ()
+@interface WSMMessagingViewController () <LYRMessageControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *dataSource;
 @property (strong, nonatomic) UIImage *myImage;
 @property (strong, nonatomic) UIImage *partnerImage;
+
+@property (nonatomic, strong) LYRMessageController *messageController;
 
 @end
 
@@ -24,23 +26,64 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //LYR
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY self.conversations.identifier == %@",
+                              _conversationIdentifier];
+    NSSortDescriptor *sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"dateSender" ascending:NO];
+    
+    _messageController = [LYRMessageController.alloc initWithClient:[LYRClient sharedClient]
+                                                          predicate:predicate
+                                                    sortDescriptors:@[sortDesc]
+                                                         fetchLimit:0
+                                                        fetchOffset:0
+                                                 sectionNameKeyPath:nil];
+    
+    _messageController.delegate = self;
+    
+    //UI
     NSData *meContent, *recipientContent;
     meContent = [[self.currentUser attachmentNamed:@"avatar"] content];
     recipientContent = [[self.recipient attachmentNamed:@"avatar"] content];
     
     self.myImage = [UIImage imageWithData:meContent];
     self.partnerImage = [UIImage imageWithData:recipientContent];
-    
-    [self loadMessages];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.messageController performUpdateWithCompletion:^(NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+            [self loadMessages];
+        }
+    }];
+}
+
+- (void)loadMessages {
+    self.dataSource = [[[ContentManager sharedManager] generateConversation] mutableCopy];
+    NSMutableArray *allMessages = @[].mutableCopy;
+    NSLog(@"Sections Cou t: %lu", (unsigned long)self.messageController.numberOfSections);
+    for (NSUInteger section = 0; section < self.messageController.numberOfSections; section++) {
+        LYRMessageSectionInfo *sectionInfo = [self.messageController sectionAtIndex:section];
+        NSLog(@"Section: %@", sectionInfo);
+        for (NSUInteger row = 0; row < sectionInfo.numberOfMessages; row++) {
+            LYRMessage *layerMessage = [sectionInfo messageAtIndex:row];
+            NSLog(@"Message: %@", layerMessage);
+            SOMessage *message = [SOMessage new];
+            message.fromMe = NO;
+            LYRMessageBody *firstBody = layerMessage.bodies[0];
+            message.text = [firstBody stringRepresentation];
+            message.type = SOMessageTypeText;
+            message.date = layerMessage.date;
+            [allMessages addObject:message];
+        }
+    }
 }
 
 - (WSMUser *)currentUser {
     return [[WSMUserManager sharedInstance] currentUser];
 }
 
-- (void)loadMessages {
-    self.dataSource = [[[ContentManager sharedManager] generateConversation] mutableCopy];
-}
 
 #pragma mark - SOMessaging data source
 - (NSMutableArray *)messages {
