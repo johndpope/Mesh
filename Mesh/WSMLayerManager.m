@@ -76,6 +76,13 @@ WSM_SINGLETON_WITH_NAME(sharedInstance);
 
 - (void)layerClient:(LYRClient *)client didReceiveMessages:(NSArray *)messages {
     NSLog(@"What? %@", messages);
+    [client fetchMessageBodiesForMessages:messages progress:^(float percent) {
+        NSLog(@"Progress: %f", percent);
+    } completion:^(NSError *error) {
+        if (error) {
+            NSLog(@"Error!");
+        }
+    }];
 }
 
 - (void)layerClient:(LYRClient *)client didChangeStatus:(LYRClientStatus)status error:(NSError *)error {
@@ -83,7 +90,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance);
     [self.capabilitySubject sendNext:@(client.isUserAuthenticated)];
 }
 
-#pragma mark - Capability Provider 
+#pragma mark - Capability Provider
 
 + (NSString *)capabilityDescription {
     return @"Talk to the people around you!";

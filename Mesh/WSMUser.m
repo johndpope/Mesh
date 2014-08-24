@@ -101,7 +101,7 @@
                                                               error:&error];
     NSAssert(!error, @"Must provide a local_users database");
     CBLDocument *userDocument = [allUserDatabases existingDocumentWithID:userID];
-    return userDocument ? [WSMUser modelForDocument: userDocument]: nil;
+    return userDocument ? [WSMUser modelForDocument:userDocument] : nil;
 }
 
 + (void)setDefaultUser:(WSMUser *)user {

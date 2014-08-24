@@ -127,7 +127,13 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
         for (NSString *userKey in devicePropertyDictionary) {
             NSMutableDictionary *userProperties = devicePropertyDictionary[userKey];
             if (userProperties.count) {
-                [usersArray addObject:[WSMUser userWithProperties:userProperties]];
+                CBLDatabase *database = [[CBLManager sharedInstance] databaseNamed:localUsersDB error:nil];
+                CBLDocument *document = [database existingDocumentWithID:dictionary[@"_id"]];
+                if (document) {
+                    [usersArray addObject:[WSMUser existingUserWithID:document.documentID]];
+                } else {
+                    [usersArray addObject:[WSMUser userWithProperties:userProperties]];
+                }
             }
         }
         return usersArray;

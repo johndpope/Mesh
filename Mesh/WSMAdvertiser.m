@@ -195,7 +195,29 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral
                   central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic {
-    if ([characteristic.UUID.UUIDString isEqualToString: self.userPropertiesCharacteristic.UUID.UUIDString]) {
+    if ([characteristic.UUID.UUIDString isEqualToString: self.syncCharacteristic.UUID.UUIDString]) {
+        NSLog(@"Should we sync?");
+        if (self.currentUser) {
+            __block NSMutableDictionary *dictionary;
+            self.currentCentral = central;
+            self.currentCharacteristic = characteristic;
+            self.currentDataTransmissionPosition = 0;
+            self.sendingEOM = NO;
+            
+            dispatch_semaphore_t putSemaphore = dispatch_semaphore_create(0);
+            [[CBLManager sharedInstance] doAsync:^{
+                dictionary = self.currentUser.document.properties.mutableCopy;
+                dispatch_semaphore_signal(putSemaphore);
+            }];
+            dispatch_semaphore_wait(putSemaphore, DISPATCH_TIME_FOREVER);
+            
+            NSDictionary *syncDictionary = [[dictionary objectsForKeys:@[@"_id", @"_rev"] notFoundMarker:@"Impossible"]];
+            
+            [self.peripheralManager setDesiredConnectionLatency:CBPeripheralManagerConnectionLatencyLow
+                                                     forCentral:central];
+            [self sendUserProperties];
+        }
+    } else if ([characteristic.UUID.UUIDString isEqualToString: self.userPropertiesCharacteristic.UUID.UUIDString]) {
         if (self.currentUser) {
             NSLog(@"Did subscribe: %@", characteristic);
             __block NSMutableDictionary *dictionary;

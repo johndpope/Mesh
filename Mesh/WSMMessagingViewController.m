@@ -18,12 +18,31 @@
 @property (strong, nonatomic) UIImage *myImage;
 @property (strong, nonatomic) UIImage *partnerImage;
 
+@property (nonatomic, strong) LYRMessageController *messageController;
+
 @end
 
 @implementation WSMMessagingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //Layer
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(self.conversations, $c, $c.lastMessage == SELF && $c.type == %d).@count > 0", LYRConversationTypeParticipants];
+    
+    NSSortDescriptor *sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"dateSender" ascending:NO];
+    
+    LYRClient *client = [LYRClient sharedClient];
+    
+    _messageController = [LYRMessageController.alloc initWithClient:client
+                                                          predicate:predicate
+                                                    sortDescriptors:@[sortDesc]
+                                                         fetchLimit:0
+                                                        fetchOffset:0
+                                                 sectionNameKeyPath:nil];
+
+    
+    // UI
     NSData *meContent, *recipientContent;
     meContent = [[self.currentUser attachmentNamed:@"avatar"] content];
     recipientContent = [[self.recipient attachmentNamed:@"avatar"] content];
@@ -32,6 +51,8 @@
     self.partnerImage = [UIImage imageWithData:recipientContent];
     
     [self loadMessages];
+    
+    
 }
 
 - (WSMUser *)currentUser {

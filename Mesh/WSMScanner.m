@@ -263,9 +263,12 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
         NSLog(@"Error discovering characteristics: %@", [error localizedDescription]);
         [self cancelConnection:peripheral completionBlock: nil];
     } else {
+        
         for (CBCharacteristic *characteristic in service.characteristics) {
-            [peripheral setNotifyValue:YES forCharacteristic:characteristic];
-            NSLog(@"Notified about characteristic %@", characteristic);
+            NSLog(@"Trying to sync characteristic %@", characteristic);
+            if ([characteristic.UUID.UUIDString isEqualToString:self.syncCharacteristic.UUID.UUIDString]) {
+                [peripheral setNotifyValue:YES forCharacteristic:self.syncCharacteristic];
+            }
         }
     }
 }
@@ -279,7 +282,40 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
              error:(NSError *)error {
     WSMLog(self.currentTransmission.length == 0, @"Transmission Starting.");
     // And check if it's the right one
-    if ([characteristic.UUID.UUIDString isEqual:self.userPropertiesCharacteristic.UUID.UUIDString]) {
+    if ([characteristic.UUID.UUIDString isEqual:self.syncCharacteristic.UUID.UUIDString]) {
+        NSString *stringFromData = [[NSString alloc] initWithData:characteristic.value
+                                                         encoding:NSUTF8StringEncoding];
+        
+        // Have we got everything we need?
+        if ([stringFromData isEqualToString:eomSignal]) {
+            // We have, so show the data,
+            NSError *err;
+            NSMutableDictionary *dictionary =  [CBLJSON JSONObjectWithData:self.currentTransmission
+                                                                   options:NSJSONReadingAllowFragments
+                                                                     error:&err];
+            if (err) {
+                NSLog(@"Error: %@", err);
+                [self cancelConnection:peripheral completionBlock:nil];
+            } else {
+                CBLDatabase *database = [[CBLManager sharedInstance] databaseNamed:localUsersDB error:nil];
+                CBLDocument *document = [database existingDocumentWithID:dictionary[@"_id"]];
+                if (document) {
+                    self.nearbyDeviceProperties[peripheral.identifier.UUIDString] = document.properties;
+                    NSLog(@"Nearyby DeviceProperties; %@", self.nearbyDeviceProperties);
+                    [self.nearbyDevicePropertiesSignal sendNext:self.nearbyDeviceProperties];
+                } else {
+                    //This is incomple and coule be troublesome later on. 
+                    [peripheral setNotifyValue:YES forCharacteristic:self.userPropertiesCharacteristic];
+                }
+            }
+            self.currentTransmission = NSMutableData.new;
+        } else {
+            NSLog(@"Appending data.");
+            // Otherwise, just add the data on to what we already have
+            [self.currentTransmission appendData:characteristic.value];
+        }
+
+    } else if ([characteristic.UUID.UUIDString isEqual:self.userPropertiesCharacteristic.UUID.UUIDString]) {
         NSString *stringFromData = [[NSString alloc] initWithData:characteristic.value
                                                          encoding:NSUTF8StringEncoding];
         

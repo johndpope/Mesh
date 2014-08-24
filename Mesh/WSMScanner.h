@@ -21,4 +21,5 @@
 @property (nonatomic, strong) NSMutableDictionary *nearbyDeviceProperties;
 @property (nonatomic, strong) RACSubject *nearbyDevicePropertiesSignal;
 
+
 @end
