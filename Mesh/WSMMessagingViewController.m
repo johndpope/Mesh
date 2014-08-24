@@ -8,6 +8,43 @@
 
 #import "WSMMessagingViewController.h"
 
+@interface WSMMessagingViewController ()
+
+@property (strong, nonatomic) NSMutableArray *dataSource;
+
+@end
+
 @implementation WSMMessagingViewController
+
+
+
+- (void)viewDidLoad;
+{
+    [super viewDidLoad];
+
+    self.tableView.dataSource = (id <UITableViewDataSource>) self;
+//    self.tableView.dataSource = (id <UITableViewDataSource>) self;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
+{
+    return 1;
+}
+
+- (void)messageInputView:(SOMessageInputView *)inputView didSendMessage:(NSString *)message;
+{
+    NSLog(@"sdfjalsdkfjsldkfjlsdkfjsdl");
+    NSLog(@"sdfjalsdkfjsldkfjlsdkfjsdl");
+    NSLog(@"sdfjalsdkfjsldkfjlsdkfjsdl");
+    NSLog(@"sdfjalsdkfjsldkfjlsdkfjsdl");
+    NSLog(@"sdfjalsdkfjsldkfjlsdkfjsdl");
+    NSLog(@"sdfjalsdkfjsldkfjlsdkfjsdl");
+    NSLog(@"sdfjalsdkfjsldkfjlsdkfjsdl");
+    NSLog(@"sdfjalsdkfjsldkfjlsdkfjsdl");
+    NSLog(@"sdfjalsdkfjsldkfjlsdkfjsdl");
+    NSLog(@"sdfjalsdkfjsldkfjlsdkfjsdl");
+    
+    
+}
 
 @end
