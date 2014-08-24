@@ -100,13 +100,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.section) {
-        case 0:
-            [self performSegueWithIdentifier:@"messagingSegue"
-                                      sender:[self userForIndexPath:indexPath]];
-            break;
-        default: break;
-    }
+    [self performSegueWithIdentifier:@"messagingSegue" sender:[self userForIndexPath:indexPath]];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
