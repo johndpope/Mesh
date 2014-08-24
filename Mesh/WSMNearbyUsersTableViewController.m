@@ -12,6 +12,8 @@
 
 @interface WSMNearbyUsersTableViewController ()
 
+@property (nonatomic, strong) NSArray *encounteredUsers;
+
 @end
 
 @implementation WSMNearbyUsersTableViewController
@@ -21,6 +23,8 @@
     self.title = @"Encounters";
     return self;
 }
+
+#pragma mark - Lazy Instantiation
 
 #define userCell @"WSMUserTableViewCell"
 
@@ -65,6 +69,9 @@
             NSLog(@"Row Count: %lu", (unsigned long)WSMUserManager.sharedInstance.nearbyUsers.count);
             return (NSInteger) WSMUserManager.sharedInstance.nearbyUsers.count;
         } break;
+        case 1: {
+            return (NSInteger) WSMUserManager.sharedInstance.encounteredUsers.count - 1;
+        }
         default: return 0;
     }
 }
@@ -81,7 +88,15 @@
 }
 
 - (WSMUser *)userForIndexPath: (NSIndexPath *)path {
-    return (WSMUser *)WSMUserManager.sharedInstance.nearbyUsers[(NSUInteger)path.row];
+    switch (path.section) {
+        case 0:{
+            return (WSMUser *)WSMUserManager.sharedInstance.nearbyUsers[(NSUInteger)path.row];
+        } break;
+        case 1:{
+            return (WSMUser *)WSMUserManager.sharedInstance.encounteredUsers[(NSUInteger)path.row];
+        } break;
+        default: return nil; break;
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

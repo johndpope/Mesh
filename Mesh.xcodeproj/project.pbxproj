@@ -85,6 +85,8 @@
 		6EACBBD61989B7980020FB67 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EACBBBE1989B7980020FB67 /* UIKit.framework */; };
 		6EACBBDE1989B7980020FB67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EACBBDC1989B7980020FB67 /* InfoPlist.strings */; };
 		6EACBBE01989B7980020FB67 /* MeshTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EACBBDF1989B7980020FB67 /* MeshTests.m */; };
+		6EB019A919A9DB2F005D78AF /* WSMLocalUserViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB019A819A9DB2F005D78AF /* WSMLocalUserViews.m */; };
+		6EB019AA19A9DB2F005D78AF /* WSMLocalUserViews.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB019A819A9DB2F005D78AF /* WSMLocalUserViews.m */; };
 		6EE63989198A3119004EFCF2 /* UIImage+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE63988198A3119004EFCF2 /* UIImage+WSMUtilities.m */; };
 		6EE6398A198A3119004EFCF2 /* UIImage+WSMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE63988198A3119004EFCF2 /* UIImage+WSMUtilities.m */; };
 		6EE6398D198A393A004EFCF2 /* WSMBootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE6398C198A393A004EFCF2 /* WSMBootViewController.m */; };
@@ -191,6 +193,8 @@
 		6EACBBDB1989B7980020FB67 /* MeshTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeshTests-Info.plist"; sourceTree = "<group>"; };
 		6EACBBDD1989B7980020FB67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6EACBBDF1989B7980020FB67 /* MeshTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeshTests.m; sourceTree = "<group>"; };
+		6EB019A719A9DB2F005D78AF /* WSMLocalUserViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMLocalUserViews.h; sourceTree = "<group>"; };
+		6EB019A819A9DB2F005D78AF /* WSMLocalUserViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSMLocalUserViews.m; sourceTree = "<group>"; };
 		6EE63987198A3119004EFCF2 /* UIImage+WSMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WSMUtilities.h"; sourceTree = "<group>"; };
 		6EE63988198A3119004EFCF2 /* UIImage+WSMUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WSMUtilities.m"; sourceTree = "<group>"; };
 		6EE6398B198A393A004EFCF2 /* WSMBootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSMBootViewController.h; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 			children = (
 				6E164BAE1989C3210063F3FE /* WSMUser.h */,
 				6E164BAF1989C3210063F3FE /* WSMUser.m */,
+				6EB019AB19A9DB35005D78AF /* CBLQueries */,
 			);
 			name = CBLModels;
 			sourceTree = "<group>";
@@ -482,6 +487,15 @@
 				6EACBBDC1989B7980020FB67 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6EB019AB19A9DB35005D78AF /* CBLQueries */ = {
+			isa = PBXGroup;
+			children = (
+				6EB019A719A9DB2F005D78AF /* WSMLocalUserViews.h */,
+				6EB019A819A9DB2F005D78AF /* WSMLocalUserViews.m */,
+			);
+			name = CBLQueries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -692,6 +706,7 @@
 				6E73ECC3198DD754005852EE /* WSMUserTableViewCell.m in Sources */,
 				6E164B8A1989C0110063F3FE /* WSMLogger.m in Sources */,
 				6E73ECC9198DE078005852EE /* WSMUserProfileViewController.m in Sources */,
+				6EB019A919A9DB2F005D78AF /* WSMLocalUserViews.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +725,7 @@
 				6EE68B7F19A9ABEE00E1CC4D /* WSMMessagingViewController.m in Sources */,
 				6E164BB51989C3880063F3FE /* WSMModel.m in Sources */,
 				6E164B951989C0110063F3FE /* NSObject+WSMUtilities.m in Sources */,
+				6EB019AA19A9DB2F005D78AF /* WSMLocalUserViews.m in Sources */,
 				6EE6398E198A393A004EFCF2 /* WSMBootViewController.m in Sources */,
 				6E164B911989C0110063F3FE /* UIAlertView+WSMUtilities.m in Sources */,
 				6E212DEF1989F2AB004D2FF6 /* WSMEditableTableViewCell.m in Sources */,
