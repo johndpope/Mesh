@@ -213,6 +213,15 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
             
             NSDictionary *syncDictionary = [dictionary dictionaryWithValuesForKeys:@[@"_id", @"_rev"]];
             
+            NSError *error;
+            NSData *data = [CBLJSON dataWithJSONObject:syncDictionary options:0 error:&error];
+            if (data) {
+                NSLog(@"Grabbing the user dictionary (%lu): %@", (unsigned long)data.length, dictionary);
+                self.currentDataTransmission = data;
+            } else {
+                NSLog(@"NO DATA from Dictionary (%@): %@", error, dictionary);
+            }
+            
             [self.peripheralManager setDesiredConnectionLatency:CBPeripheralManagerConnectionLatencyLow
                                                      forCentral:central];
             [self sendUserProperties];
