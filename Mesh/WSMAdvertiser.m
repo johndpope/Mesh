@@ -195,7 +195,8 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral
                   central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic {
-    if ([characteristic.UUID.UUIDString isEqualToString: self.syncCharacteristic.UUID.UUIDString]) {
+    NSLog(@"Did subscribe to characteristic: %@", characteristic.UUID.UUIDString);
+    if ([characteristic.UUID.UUIDString isEqualToString:self.syncCharacteristic.UUID.UUIDString]) {
         NSLog(@"Should we sync?");
         if (self.currentUser) {
             __block NSMutableDictionary *dictionary;
@@ -218,13 +219,12 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
             if (data) {
                 NSLog(@"Grabbing the user dictionary (%lu): %@", (unsigned long)data.length, dictionary);
                 self.currentDataTransmission = data;
+                [self.peripheralManager setDesiredConnectionLatency:CBPeripheralManagerConnectionLatencyLow
+                                                         forCentral:central];
+                [self sendUserProperties];
             } else {
                 NSLog(@"NO DATA from Dictionary (%@): %@", error, dictionary);
             }
-            
-            [self.peripheralManager setDesiredConnectionLatency:CBPeripheralManagerConnectionLatencyLow
-                                                     forCentral:central];
-            [self sendUserProperties];
         }
     } else if ([characteristic.UUID.UUIDString isEqualToString: self.userPropertiesCharacteristic.UUID.UUIDString]) {
         if (self.currentUser) {

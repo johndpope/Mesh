@@ -127,6 +127,11 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
                     [WSMScanner characteristicWithUUID:userPropertiesCharacteristicString]);
 }
 
+- (CBMutableCharacteristic *)syncCharacteristic {
+    return WSM_LAZY(_syncCharacteristic,
+                    [WSMScanner characteristicWithUUID:userSyncCharacteristicString]);
+}
+
 - (NSMutableData *)currentTransmission {
     return WSM_LAZY(_currentTransmission, [[NSMutableData alloc] init]);
 }
@@ -263,11 +268,10 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
         NSLog(@"Error discovering characteristics: %@", [error localizedDescription]);
         [self cancelConnection:peripheral completionBlock: nil];
     } else {
-        
         for (CBCharacteristic *characteristic in service.characteristics) {
-            NSLog(@"Trying to sync characteristic %@", characteristic);
             if ([characteristic.UUID.UUIDString isEqualToString:self.syncCharacteristic.UUID.UUIDString]) {
-                [peripheral setNotifyValue:YES forCharacteristic:self.syncCharacteristic];
+                NSLog(@"Trying to sync characteristic %@", characteristic);
+                [peripheral setNotifyValue:YES forCharacteristic:characteristic];
             }
         }
     }
@@ -301,10 +305,11 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
                 CBLDocument *document = [database existingDocumentWithID:dictionary[@"_id"]];
                 if (document) {
                     self.nearbyDeviceProperties[peripheral.identifier.UUIDString] = document.properties;
-                    NSLog(@"Nearyby DeviceProperties; %@", self.nearbyDeviceProperties);
+                    NSLog(@"Nearyby Device Properties: %@", self.nearbyDeviceProperties);
                     [self.nearbyDevicePropertiesSignal sendNext:self.nearbyDeviceProperties];
                 } else {
-                    //This is incomple and coule be troublesome later on. 
+                    //This is incomplete and could be troublesome later on.
+                    NSLog(@"Start asking for info since we are not synced!");
                     [peripheral setNotifyValue:YES forCharacteristic:self.userPropertiesCharacteristic];
                 }
             }
