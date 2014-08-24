@@ -3,7 +3,7 @@
 //  Mesh
 //
 //  Created by Cristian Monterroza on 7/26/14.
-//  Copyright (c) 2014 daheins. All rights reserved.
+//  Copyright (c) 2014 wrkstrm. All rights reserved.
 //
 
 #import "WSMModel.h"

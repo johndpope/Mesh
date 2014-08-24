@@ -24,7 +24,6 @@
     #import <CouchbaseLite/CouchbaseLite.h>
     #import <AFNetworking/AFNetworking.h>
     #import <LayerKit/LayerKit.h>
-    #import <SOMessaging/SOMessage.h>
 
     //My Party
     #import "WSMUIAppDelegate.h"

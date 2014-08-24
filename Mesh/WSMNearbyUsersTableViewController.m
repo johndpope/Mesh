@@ -3,11 +3,12 @@
 //  Mesh
 //
 //  Created by Cristian Monterroza on 7/29/14.
-//  Copyright (c) 2014 daheins. All rights reserved.
+//  Copyright (c) 2014 wrkstrm. All rights reserved.
 //
 
 #import "WSMNearbyUsersTableViewController.h"
 #import "WSMUserTableViewCell.h"
+#import "WSMMessagingViewController.h"
 
 @interface WSMNearbyUsersTableViewController ()
 
@@ -86,7 +87,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0:
-            [self performSegueWithIdentifier:@"userProfile"
+            [self performSegueWithIdentifier:@"messagingSegue"
                                       sender:[self userForIndexPath:indexPath]];
             break;
         default: break;
@@ -96,41 +97,14 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return NO;
 }
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"userProfile"]) {
-        [segue.destinationViewController setUser:sender];
+    if ([segue.identifier isEqualToString:@"messagingSegue"]) {
+        WSMMessagingViewController *messagingController = (WSMMessagingViewController *) segue.destinationViewController;
+        messagingController.recipient = (WSMUser *)sender;
     }
     
     // Get the new view controller using [segue destinationViewController].
