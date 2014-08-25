@@ -10,7 +10,7 @@
 
 @implementation WSMUser
 
-@dynamic username;
+@dynamic username, address, uupc;
 
 + (WSMUser *)defaultUser {
     NSError *error;
@@ -78,7 +78,7 @@
         } else {
             [userDocument putProperties:mutableProperties error:nil];
         }
-        newUser = [[WSMUser alloc] initWithDocument:userDocument];
+        newUser = [WSMUser modelForDocument:userDocument];
         if (contents) {
             NSLog(@"We get image content!");
             [newUser setAttachmentNamed:@"avatar" withContentType:@"image/jpeg" content:contents];

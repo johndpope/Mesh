@@ -16,6 +16,8 @@
 @interface WSMUser : WSMModel
 
 @property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSString *uupc; 
 
 + (WSMUser *)defaultUser;
 

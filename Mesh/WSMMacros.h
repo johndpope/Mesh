@@ -49,8 +49,6 @@ do { \
 
 #define WSM_LAZY(variable, assignment) (variable = variable ?: assignment)
 
-#define _||=(variable, assignment) (variable = variable ?: assignment)
-
 /**
  Standard increasing order comparitor.
  */

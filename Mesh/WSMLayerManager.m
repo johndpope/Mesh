@@ -33,8 +33,15 @@ WSM_SINGLETON_WITH_NAME(sharedInstance);
         _client.delegate = self;
         [_client setAppKey:@"8263a0acd7aab93b6689adb00891fbce"];
         [_client start];
+        _messageBodySubject = [RACSubject subject];
     }
     return self;
+}
+
+- (void) start {
+}
+
+- (void) stop {
 }
 
 - (RACSubject *)capabilitySubject {
@@ -76,6 +83,16 @@ WSM_SINGLETON_WITH_NAME(sharedInstance);
 
 - (void)layerClient:(LYRClient *)client didReceiveMessages:(NSArray *)messages {
     NSLog(@"What? %@", messages);
+    [client fetchMessageBodiesForMessages:messages progress:^(float percent) {
+        NSLog(@"Percent: %f", percent);
+    } completion:^(NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"Messages GOT!");
+            [self.messageBodySubject sendNext:messages];
+        }
+    }];
 }
 
 - (void)layerClient:(LYRClient *)client didChangeStatus:(LYRClientStatus)status error:(NSError *)error {

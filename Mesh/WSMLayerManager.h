@@ -12,4 +12,6 @@
 
 + (instancetype)sharedInstance;
 
+@property (nonatomic, strong) RACSubject *messageBodySubject;
+
 @end

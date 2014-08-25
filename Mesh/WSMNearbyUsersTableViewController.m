@@ -39,7 +39,6 @@
                                                  sectionNameKeyPath:nil];
 
     _messageController.delegate = self;
-    
     return self;
 }
 
@@ -65,7 +64,9 @@
                      LYRMessageSectionInfo *sectionInfo = [self.messageController sectionAtIndex:0];
                      
                      NSLog(@"Number of messages: %lu", (unsigned long)sectionInfo.numberOfMessages);
+                     self.message = [sectionInfo messageAtIndex:0];
                  }
+                 
                  [self.tableView reloadData];
              }];
          });
@@ -86,7 +87,7 @@
            forChangeType:(LYRObjectControllerChange)changeType
             newIndexPath:(NSIndexPath*)newIndexPath {
     NSLog(@"Message: %@", message);
-    self.message = message;
+//    self.message = message;
 }
 
 #pragma mark - Table view data source
@@ -153,11 +154,12 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"messagingSegue"]) {
-        
+        NSLog(@"Prepare for Segue!");
         WSMMessagingViewController *messagingController = (WSMMessagingViewController *) segue.destinationViewController;
         messagingController.recipient = (WSMUser *)sender;
         
         NSString * conversationIdentifier = [self.message conversationForType:LYRConversationTypeParticipants].identifier;
+        NSLog(@"ConversationIdentifer: %@", conversationIdentifier);
         messagingController.conversationIdentifier = conversationIdentifier;
     }
     
