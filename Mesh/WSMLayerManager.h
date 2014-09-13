@@ -12,6 +12,10 @@
 
 + (instancetype)sharedInstance;
 
+#pragma mark - Client
+
+@property (nonatomic, strong) LYRClient *client;
+
 @property (nonatomic, strong) RACSubject *messageBodySubject;
 
 @end

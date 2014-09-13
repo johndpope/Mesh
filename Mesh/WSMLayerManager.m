@@ -11,9 +11,7 @@
 
 @interface WSMLayerManager () <WSMCapabilityProvider>
 
-#pragma mark - Client
 
-@property (nonatomic, strong) LYRClient *client;
 
 #pragma mark - State
 
@@ -29,10 +27,8 @@ WSM_SINGLETON_WITH_NAME(sharedInstance);
 
 - (instancetype)init {
     if ((self = [super init])) {
-        _client = [LYRClient sharedClient];
+        _client = [[LYRClient alloc] init];
         _client.delegate = self;
-        [_client setAppKey:@"8263a0acd7aab93b6689adb00891fbce"];
-        [_client start];
         _messageBodySubject = [RACSubject subject];
     }
     return self;

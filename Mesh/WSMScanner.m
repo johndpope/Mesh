@@ -285,7 +285,7 @@ WSM_SINGLETON_WITH_NAME(sharedInstance)
         
         // Have we got everything we need?
         if ([stringFromData isEqualToString:eomSignal]) {
-            // We have, so show the data,
+            // We have, so show the data...
             NSError *err;
             NSMutableDictionary *dictionary =  [CBLJSON JSONObjectWithData:self.currentTransmission
                                                                    options:NSJSONReadingAllowFragments

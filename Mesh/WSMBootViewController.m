@@ -9,6 +9,7 @@
 #import "WSMBootViewController.h"
 #import "WSMMeshLogoButton.h"
 #import "WSMAuthViewController.h"
+#import "WSMUserManager.h"
 
 @interface WSMBootViewController ()
 
@@ -37,7 +38,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSLog(@"Current User: %@", WSMUserManager.sharedInstance.currentUser);
         NSLog(@"UserManager Auth: %i", WSMUserManager.authenticated);
-        NSLog(@"LYRManager: %i", [[LYRClient sharedClient] isUserAuthenticated]);
+        NSLog(@"LYRManager: %i", [[[WSMLayerManager sharedInstance] sharedClient] isUserAuthenticated]);
         if (self.currentUser) {
             [self performSegueWithIdentifier:mainTabBarControllerSegue sender:self];
         } else {

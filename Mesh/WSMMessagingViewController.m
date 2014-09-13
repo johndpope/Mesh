@@ -7,7 +7,6 @@
 //
 
 #import <SOMessaging/SOMessage.h>
-#import <LayerKit/LayerKit.h>
 #import "WSMMessagingViewController.h"
 #import "ContentManager.h"
 #import "Message.h"
